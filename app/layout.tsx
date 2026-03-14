@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { GoogleTagManager } from "@next/third-parties/google";
 
 import { lora, dmSans } from "@/lib/fonts";
+import { JsonLd } from "@/app/components/JsonLd";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -121,16 +122,9 @@ export default function RootLayout({
 
   return (
     <html lang="es" className={`${lora.variable} ${dmSans.variable}`}>
+      <JsonLd data={personSchema} />
       <head>
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || ''} />
-        
-        {/* Schema.org JSON-LD */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(personSchema),
-          }}
-        />
       </head>
       <body className="min-h-screen bg-cream text-ink antialiased">
         <div className="flex min-h-screen flex-col">
