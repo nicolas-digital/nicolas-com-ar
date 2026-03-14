@@ -98,7 +98,7 @@ export default function RootLayout({
     worksFor: {
       "@type": "Organization",
       name: "Hylea",
-      url: "https://hylea.com",
+      url: "https://www.hylea.systems",
     },
     knowsAbout: [
       "Retail Media",
