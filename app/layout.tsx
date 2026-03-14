@@ -1,6 +1,5 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import Script from "next/script";
 import { GoogleTagManager } from "@next/third-parties/google";
 
 import { lora, dmSans } from "@/lib/fonts";
@@ -126,16 +125,14 @@ export default function RootLayout({
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || ''} />
         
         {/* Schema.org JSON-LD */}
-        <Script
-          id="person-schema"
+        <script
           type="application/ld+json"
-          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(personSchema),
           }}
         />
       </head>
-      <body className="min-h-screen bg-black text-white antialiased">
+      <body className="min-h-screen bg-cream text-ink antialiased">
         <div className="flex min-h-screen flex-col">
           <Navbar />
           <main className="flex-1">{children}</main>
