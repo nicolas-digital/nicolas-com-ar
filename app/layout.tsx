@@ -1,9 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import GTMScript from "@/components/GTMScript";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.nicolas.com.ar"),
@@ -90,7 +90,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        <GTMScript />
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || ''} />
       </head>
       <body className="min-h-screen bg-black text-white antialiased">
         <script
@@ -103,6 +103,16 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
+
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
       </body>
     </html>
   );
