@@ -33,7 +33,7 @@ const knowledge = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-black text-white">
+    <footer className="border-t border-white/10 bg-ink text-white">
       <div className="mx-auto max-w-6xl px-6 py-14">
 
         <div className="grid gap-10 md:grid-cols-4">
