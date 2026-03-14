@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import Script from "next/script";
 import { GoogleTagManager } from "@next/third-parties/google";
 
 import { lora, dmSans } from "@/lib/fonts";
@@ -64,41 +65,77 @@ export default function RootLayout({
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Prof. Nicolás Valenzuela",
-    alternateName: ["Nicolás Valenzuela"],
-    jobTitle: "Strategic Advisor",
+    name: "Nicolás Valenzuela",
+    alternateName: "Prof. Nicolás Valenzuela",
+    jobTitle: "Digital Transformation Advisor | Board Member",
     description:
-      "Especialista en digital commerce, retail media e inteligencia artificial aplicada en América Latina.",
+      "Advisor en transformación digital, retail media e IA aplicada con +20 años de experiencia en Latinoamérica. MIT Chief Digital Officer Program 2025. Board of Directors CACE.",
     url: "https://www.nicolas.com.ar",
+    image: "https://www.nicolas.com.ar/images/nicolas-valenzuela.jpg",
+    email: "nicolas@nicolas.com.ar",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Buenos Aires",
-      addressCountry: "Argentina",
+      addressCountry: "AR",
     },
-    sameAs: [
-      "https://www.linkedin.com/in/REEMPLAZAR-CON-TU-LINKEDIN",
+    alumniOf: [
+      {
+        "@type": "CollegeOrUniversity",
+        name: "MIT Professional Education",
+        description: "Chief Digital Officer Program",
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        name: "Universidad Católica Argentina",
+        description: "MBA",
+      },
     ],
+    memberOf: {
+      "@type": "Organization",
+      name: "Cámara Argentina de Comercio Electrónico (CACE)",
+      description: "Board of Directors — 8 años",
+    },
+    worksFor: {
+      "@type": "Organization",
+      name: "Hylea",
+      url: "https://hylea.com",
+    },
     knowsAbout: [
-      "Digital Commerce",
       "Retail Media",
-      "Ecommerce Strategy",
-      "Artificial Intelligence",
-      "Customer Experience",
-      "Digital Transformation",
+      "Digital Commerce",
+      "Inteligencia Artificial aplicada a negocios",
+      "Transformación Digital",
+      "Ecommerce Latinoamérica",
+      "Omnicanalidad",
+      "Data-driven decision making",
     ],
+    sameAs: ["https://www.linkedin.com/in/nvalenzuela/"],
+    hasOccupation: {
+      "@type": "Occupation",
+      name: "Digital Transformation Advisor",
+      occupationLocation: {
+        "@type": "Country",
+        name: "Argentina",
+      },
+    },
   };
 
   return (
     <html lang="es" className={`${lora.variable} ${dmSans.variable}`}>
       <head>
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || ''} />
+        
+        {/* Schema.org JSON-LD */}
+        <Script
+          id="person-schema"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personSchema),
+          }}
+        />
       </head>
       <body className="min-h-screen bg-black text-white antialiased">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-        />
-
         <div className="flex min-h-screen flex-col">
           <Navbar />
           <main className="flex-1">{children}</main>
