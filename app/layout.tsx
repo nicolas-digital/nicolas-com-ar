@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { GoogleTagManager } from "@next/third-parties/google";
 
+import { lora, dmSans } from "@/lib/fonts";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -88,7 +89,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="es">
+    <html lang="es" className={`${lora.variable} ${dmSans.variable}`}>
       <head>
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || ''} />
       </head>
