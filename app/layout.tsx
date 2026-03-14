@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import GTMScript from "@/components/GTMScript";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.nicolas.com.ar"),
@@ -89,21 +90,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        {/* Google Tag Manager */}
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GTM_ID}`}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GTM_ID}');
-            `,
-          }}
-        />
+        <GTMScript />
       </head>
       <body className="min-h-screen bg-black text-white antialiased">
         <script
