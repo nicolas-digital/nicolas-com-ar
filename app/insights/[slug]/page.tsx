@@ -90,7 +90,7 @@ export default async function InsightDetailPage({ params }: PageProps) {
     "@type": "Article",
     headline: meta.title,
     description: meta.description,
-    datePublished: meta.date,
+    datePublished: new Date(meta.date).toISOString(),
     author: {
       "@type": "Person",
       name: "Prof. Nicolás Valenzuela",
