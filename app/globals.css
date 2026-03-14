@@ -1,4 +1,6 @@
+/* stylelint-disable */
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   --background: #ffffff;

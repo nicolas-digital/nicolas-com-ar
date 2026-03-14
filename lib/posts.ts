@@ -10,60 +10,82 @@ export type PostMeta = {
   description: string;
   date: string;
   topic: string;
-  tags?: string[];
-  coverImage?: string;
-  featured?: boolean;
+  tags: string[];
+  coverImage: string;
+  featured: boolean;
 };
 
-export function getAllPosts(): PostMeta[] {
-  const fileNames = fs.readdirSync(postsDirectory);
+export type Post = {
+  meta: PostMeta;
+  content: string;
+};
 
-  const posts = fileNames
-    .filter((fileName) => fileName.endsWith(".mdx"))
-    .map((fileName) => {
-      const fullPath = path.join(postsDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, "utf8");
-      const { data } = matter(fileContents);
+function parsePostFile(fileName: string): Post {
+  const fullPath = path.join(postsDirectory, fileName);
+  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const { data, content } = matter(fileContents);
 
-      const slugFromFile = fileName.replace(/\.mdx$/, "");
+  const slug = fileName.replace(/\.mdx$/, "");
 
-      return {
-        title: data.title ?? slugFromFile,
-        slug: data.slug ?? slugFromFile,
-        description: data.description ?? "",
-        date: data.date ?? "",
-        topic: data.topic ?? "general",
-        tags: data.tags ?? [],
-        coverImage: data.coverImage ?? "",
-        featured: data.featured ?? false,
-      } as PostMeta;
-    })
-    .sort((a, b) => (a.date < b.date ? 1 : -1));
-
-  return posts;
+  return {
+    meta: {
+      title: data.title ?? slug,
+      slug,
+      description: data.description ?? "",
+      date: data.date ?? "",
+      topic: data.topic ?? "general",
+      tags: Array.isArray(data.tags) ? data.tags : [],
+      coverImage: data.coverImage ?? "",
+      featured: Boolean(data.featured),
+    },
+    content,
+  };
 }
 
-export function getPostBySlug(slug: string) {
+export function getAllPosts(): PostMeta[] {
+  const fileNames = fs
+    .readdirSync(postsDirectory)
+    .filter((fileName) => fileName.endsWith(".mdx"));
+
+  return fileNames
+    .map((fileName) => parsePostFile(fileName).meta)
+    .sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+}
+
+export function getPostBySlug(slug: string): Post | null {
   const fullPath = path.join(postsDirectory, `${slug}.mdx`);
 
   if (!fs.existsSync(fullPath)) {
     return null;
   }
 
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-  const { data, content } = matter(fileContents);
+  return parsePostFile(`${slug}.mdx`);
+}
+
+export function getPostsByTopic(topic: string): PostMeta[] {
+  return getAllPosts().filter(
+    (post) => post.topic.toLowerCase() === topic.toLowerCase()
+  );
+}
+
+export function getAdjacentPosts(slug: string): {
+  prev: PostMeta | null;
+  next: PostMeta | null;
+} {
+  const posts = getAllPosts();
+  const index = posts.findIndex((post) => post.slug === slug);
+
+  if (index === -1) {
+    return {
+      prev: null,
+      next: null,
+    };
+  }
 
   return {
-    meta: {
-      title: data.title ?? slug,
-      slug: data.slug ?? slug,
-      description: data.description ?? "",
-      date: data.date ?? "",
-      topic: data.topic ?? "general",
-      tags: data.tags ?? [],
-      coverImage: data.coverImage ?? "",
-      featured: data.featured ?? false,
-    } as PostMeta,
-    content,
+    prev: posts[index + 1] ?? null,
+    next: posts[index - 1] ?? null,
   };
 }

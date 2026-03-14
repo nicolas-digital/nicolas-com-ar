@@ -67,8 +67,17 @@ comes from.
 * The `InsightsPage` (see `app/insights/page.tsx`) renders a grid of articles
   using the metadata returned by `getAllPosts`.  Each `post.slug` is used both
   for the URL (`/insights/${slug}`) and as the filename for the MDX file.
-* The `TopicsPage` shows hard‑coded topic links; there is no model or JSON for
-  dynamic topics.
+* The **Topics system** (new) structures content around semantic clusters:
+  * `lib/topics.ts` defines all topics: `digital-commerce`, `retail-media`, `ai`, `digital-transformation`
+  * Each MDX file has a `topic` field in frontmatter that maps to a topic slug
+  * `app/topics/page.tsx` shows all topics with post counts
+  * `app/topics/[slug]/page.tsx` shows topic detail + related topics + filtered insights
+  * `getPostsByTopic(title)` in `lib/posts.ts` filters insights by topic title
+  * Add new topics by editing `lib/topics.ts` and creating `.mdx` files with matching `topic` field
+* The `TopicsPage` uses dynamic topic data; adding a topic requires:
+  1. Adding entry to `topics` array in `lib/topics.ts`
+  2. Creating `.mdx` files with `topic: "topic-title"` in frontmatter
+  3. No manual route creation needed (uses `generateStaticParams`)
 * All JSX uses Spanish text content.  Keep the locale (`<html lang="es">`) and
   text direction in mind when adding new copy.
 
