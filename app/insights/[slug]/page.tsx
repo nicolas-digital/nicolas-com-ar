@@ -6,6 +6,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 
 import TrackInsightView from "@/components/tracking/TrackInsightView";
 import ReadingProgress from "@/components/ReadingProgress";
+import { JsonLd } from "@/app/components/JsonLd";
 import { getPostBySlug, getAdjacentPosts } from "@/lib/posts";
 import { calculateReadingTime } from "@/lib/readingTime";
 
@@ -118,12 +119,7 @@ export default async function InsightDetailPage({ params }: PageProps) {
 
   return (
     <main className="bg-black text-white">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(articleSchema),
-        }}
-      />
+      <JsonLd data={articleSchema} />
 
       <ReadingProgress />
 
