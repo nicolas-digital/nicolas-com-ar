@@ -68,138 +68,212 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="mx-auto max-w-6xl px-6 py-20">
+    <main className="bg-cream">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(profileJsonLd) }}
       />
 
-      <section className="max-w-4xl">
-        <p className="text-sm uppercase tracking-[0.2em] text-blue-600">
-          Sobre Prof. Nicolás Valenzuela
-        </p>
-
-        <h1 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
-          Estrategia, ejecución y transformación digital en retail, commerce e
-          inteligencia artificial
-        </h1>
-
-        <p className="mt-6 text-lg leading-8 text-gray-600">
-          Prof. Nicolás Valenzuela, radicado en Buenos Aires, Argentina, trabaja
-          en la intersección entre digital commerce, retail media,
-          inteligencia artificial aplicada y transformación organizacional en
-          América Latina.
-        </p>
-
-        <p className="mt-4 text-lg leading-8 text-gray-600">
-          Su experiencia combina visión estratégica, desarrollo de capacidades
-          digitales y ejecución en entornos de negocio complejos. Este sitio
-          funciona como un hub profesional donde se reúnen reflexiones, marcos
-          de trabajo, aprendizajes de industria y perspectivas sobre la evolución
-          del comercio digital, el uso de datos y el impacto de la inteligencia
-          artificial en los modelos de negocio.
-        </p>
-      </section>
-
-      <section className="mt-16 grid gap-6 md:grid-cols-2">
-        <div className="rounded-2xl border border-gray-200 p-6">
-          <h2 className="text-2xl font-semibold">Experiencia</h2>
-
-          <p className="mt-4 leading-7 text-gray-600">
-            Su trayectoria combina liderazgo en organizaciones de retail,
-            plataformas tecnológicas y proyectos de transformación digital,
-            trabajando en ecommerce, marketing digital, customer experience,
-            operaciones, logística y monetización digital en distintos mercados
-            de América Latina.
+      {/* Hero Section */}
+      <section className="border-b border-gray-200">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+          <p className="text-xs font-semibold tracking-wider" style={{ color: "#8B7355" }}>
+            ● SOBRE NICOLÁS
           </p>
-        </div>
 
-        <div className="rounded-2xl border border-gray-200 p-6">
-          <h2 className="text-2xl font-semibold">Enfoque</h2>
+          <h1 className="mt-4 md:mt-6 text-3xl md:text-5xl font-bold leading-tight font-serif text-ink">
+            Estrategia, ejecución y transformación digital en retail, commerce e inteligencia artificial
+          </h1>
 
-          <p className="mt-4 leading-7 text-gray-600">
-            El trabajo se centra en traducir visión estratégica en capacidades
-            concretas. Esto implica diagnóstico, priorización de oportunidades,
-            diseño de roadmaps y acompañamiento a equipos que necesitan convertir
-            estrategia en ejecución real.
+          <p className="mt-6 text-base md:text-lg leading-7 md:leading-8 text-muted max-w-3xl">
+            Más de 25 años trabajando en la intersección entre digital commerce, retail media, inteligencia artificial aplicada y transformación organizacional en América Latina. Mi enfoque: traducir visión estratégica en ejecución real.
           </p>
         </div>
       </section>
 
-      <section className="mt-20">
-        <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
-            Áreas de conocimiento
-          </p>
+      {/* Bio Section */}
+      <section className="border-b border-gray-200">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold font-serif text-ink">
+                La trayectoria
+              </h2>
+              <p className="mt-4 leading-7 text-muted">
+                Combina liderazgo en organizaciones de retail, plataformas tecnológicas y proyectos de transformación digital. Desde axeso5 hasta Cencosud, pasando por OLX, Intellignos, VTEX y andabi—cada rol ha sido una oportunidad para profundizar en ecommerce, marketing digital, customer experience y monetización de datos.
+              </p>
+              <p className="mt-4 leading-7 text-muted">
+                Docente desde 2000 en universidades como UBA, UCEMA, ITBA y Universidad de Buenos Aires. Speaker en jornadas sobre innovación digital, marketing y emprendedorismo.
+              </p>
+            </div>
 
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-gray-900">
-            Temas que estructuran el trabajo y la producción pública
+            {/* Stats */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="p-6 rounded-lg border-2 border-gold/30" style={{ backgroundColor: "rgba(200, 169, 110, 0.05)" }}>
+                <p className="text-3xl md:text-4xl font-bold font-serif text-gold">25+</p>
+                <p className="mt-2 text-sm text-muted">Años en digital</p>
+              </div>
+              <div className="p-6 rounded-lg border-2 border-forest/30" style={{ backgroundColor: "rgba(26, 58, 42, 0.05)" }}>
+                <p className="text-3xl md:text-4xl font-bold font-serif" style={{ color: "#1A3A2A" }}>4</p>
+                <p className="mt-2 text-sm text-muted">Países en operación</p>
+              </div>
+              <div className="p-6 rounded-lg border-2 border-gold/30" style={{ backgroundColor: "rgba(200, 169, 110, 0.05)" }}>
+                <p className="text-3xl md:text-4xl font-bold font-serif text-gold">100+</p>
+                <p className="mt-2 text-sm text-muted">Empresas asesoradas</p>
+              </div>
+              <div className="p-6 rounded-lg border-2 border-forest/30" style={{ backgroundColor: "rgba(26, 58, 42, 0.05)" }}>
+                <p className="text-3xl md:text-4xl font-bold font-serif" style={{ color: "#1A3A2A" }}>10+</p>
+                <p className="mt-2 text-sm text-muted">Universidades</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expertise Areas */}
+      <section className="border-b border-gray-200 bg-white">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+          <h2 className="text-3xl md:text-4xl font-bold font-serif text-ink mb-4">
+            Áreas de expertise
           </h2>
-
-          <p className="mt-6 leading-8 text-gray-600">
-            Los contenidos publicados y las intervenciones profesionales se
-            organizan alrededor de algunos ejes que conectan tecnología,
-            negocio y experiencia de cliente.
+          <p className="text-base md:text-lg leading-7 text-muted max-w-3xl mb-12">
+            Los temas que estructuran el trabajo y la producción pública conectan tecnología, negocio y experiencia de cliente.
           </p>
-        </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          <div className="rounded-2xl border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold">Digital Commerce</h3>
-            <p className="mt-3 leading-7 text-gray-600">
-              Modelos de crecimiento digital, operación ecommerce,
-              omnicanalidad y capacidades organizacionales para negocios
-              digitales.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="p-6 rounded-lg border-2 border-forest/30 hover:border-gold transition-colors" style={{ backgroundColor: "rgba(26, 58, 42, 0.05)" }}>
+              <h3 className="text-lg font-bold font-serif text-ink">Digital Commerce</h3>
+              <p className="mt-3 leading-6 text-muted text-sm">
+                Modelos de crecimiento, operación ecommerce, omnicanalidad y capacidades organizacionales para negocios digitales.
+              </p>
+            </div>
 
-          <div className="rounded-2xl border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold">Retail Media</h3>
-            <p className="mt-3 leading-7 text-gray-600">
-              Monetización digital, ecosistemas entre retailers y marcas y el
-              rol de los datos en nuevas fuentes de ingresos.
-            </p>
-          </div>
+            <div className="p-6 rounded-lg border-2 border-gold/30 hover:border-gold transition-colors" style={{ backgroundColor: "rgba(200, 169, 110, 0.05)" }}>
+              <h3 className="text-lg font-bold font-serif text-ink">Retail Media</h3>
+              <p className="mt-3 leading-6 text-muted text-sm">
+                Monetización digital, ecosistemas entre retailers y marcas, y el rol de los datos en nuevas fuentes de ingresos.
+              </p>
+            </div>
 
-          <div className="rounded-2xl border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold">Inteligencia Artificial</h3>
-            <p className="mt-3 leading-7 text-gray-600">
-              Casos de uso de inteligencia artificial aplicados a negocio,
-              operación y experiencia de cliente.
-            </p>
+            <div className="p-6 rounded-lg border-2 border-forest/30 hover:border-gold transition-colors" style={{ backgroundColor: "rgba(26, 58, 42, 0.05)" }}>
+              <h3 className="text-lg font-bold font-serif text-ink">Inteligencia Artificial</h3>
+              <p className="mt-3 leading-6 text-muted text-sm">
+                Casos de uso de IA aplicados a negocio, operación y experiencia de cliente en entornos digitales.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="mt-20">
-        <div className="rounded-3xl bg-blue-700 px-8 py-12 text-white">
-          <h2 className="text-3xl font-bold tracking-tight">
-            Este sitio busca convertirse en una referencia sobre comercio
-            digital, retail media e inteligencia artificial aplicada en América
-            Latina
-          </h2>
+      {/* Enfoque Section */}
+      <section className="border-b border-gray-200">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+          <div className="max-w-3xl">
+            <h2 className="text-3xl md:text-4xl font-bold font-serif text-ink mb-6">
+              Cómo funciona
+            </h2>
+            <p className="text-base md:text-lg leading-8 text-muted mb-8">
+              El trabajo se centra en traducir visión estratégica en capacidades concretas. Esto implica:
+            </p>
+          </div>
 
-          <p className="mt-4 max-w-3xl text-blue-100">
-            Más que una biografía profesional, la idea es construir un espacio
-            donde ejecutivos, equipos y sistemas de búsqueda puedan encontrar
-            ideas, marcos de trabajo y análisis relevantes, vinculados a la
-            producción pública de Prof. Nicolás Valenzuela desde Buenos Aires,
-            Argentina.
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl">
+            <div>
+              <p className="text-sm font-semibold" style={{ color: "#C8A96E" }}>Diagnóstico</p>
+              <p className="mt-2 text-sm leading-6 text-muted">
+                Análisis profundo de contexto, capacidades y oportunidades en tu organización.
+              </p>
+            </div>
+            <div>
+              <p className="text-sm font-semibold" style={{ color: "#1A3A2A" }}>Priorización</p>
+              <p className="mt-2 text-sm leading-6 text-muted">
+                Identificación de oportunidades de mayor impacto y viabilidad.
+              </p>
+            </div>
+            <div>
+              <p className="text-sm font-semibold" style={{ color: "#C8A96E" }}>Roadmap</p>
+              <p className="mt-2 text-sm leading-6 text-muted">
+                Diseño de ruta clara con hitos, recursos y timing definidos.
+              </p>
+            </div>
+            <div>
+              <p className="text-sm font-semibold" style={{ color: "#1A3A2A" }}>Ejecución</p>
+              <p className="mt-2 text-sm leading-6 text-muted">
+                Acompañamiento a equipos en la transformación de estrategia en resultados reales.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section style={{ backgroundColor: "#1A3A2A" }}>
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24 text-white">
+          <h2 className="text-3xl md:text-4xl font-bold font-serif mb-4">
+            Hablemos de tu estrategia
+          </h2>
+          <p className="text-lg leading-8 text-white/90 max-w-2xl mb-8">
+            Si trabajas en retail, ecommerce, retail media o transformación digital en Latinoamérica, me gustaría conocer tu contexto.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-3 md:gap-4">
+            <a
+              href="https://calendly.com/nicolasvalenzuela"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-cream text-ink px-6 py-3 text-sm md:text-base font-semibold hover:bg-white transition-colors"
+            >
+              Calendly
+            </a>
+
+            <a
+              href="mailto:nicolas@nicolas.com.ar"
+              className="rounded-full border border-white/30 px-6 py-3 text-sm md:text-base font-semibold text-white hover:bg-white/10 transition-colors"
+            >
+              Email
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/nvalenzuela/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-white/30 px-6 py-3 text-sm md:text-base font-semibold text-white hover:bg-white/10 transition-colors"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Links */}
+      <section className="bg-white border-t border-gray-200">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Link
               href="/consulting"
-              className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-blue-700 hover:bg-blue-50"
+              className="p-6 rounded-lg border-2 border-forest/20 hover:border-gold hover:bg-cream transition-all"
             >
-              Ver consulting
+              <p className="text-sm font-semibold" style={{ color: "#1A3A2A" }}>Servicios</p>
+              <h3 className="text-lg font-bold font-serif text-ink mt-2">Consulting</h3>
+              <p className="text-sm text-muted mt-2">Transformación digital, estrategia y ejecución</p>
             </Link>
 
             <Link
               href="/insights"
-              className="rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10"
+              className="p-6 rounded-lg border-2 border-gold/20 hover:border-gold hover:bg-cream transition-all"
             >
-              Explorar insights
+              <p className="text-sm font-semibold" style={{ color: "#C8A96E" }}>Contenido</p>
+              <h3 className="text-lg font-bold font-serif text-ink mt-2">Insights</h3>
+              <p className="text-sm text-muted mt-2">Análisis sobre retail, ecommerce e IA</p>
+            </Link>
+
+            <Link
+              href="/topics"
+              className="p-6 rounded-lg border-2 border-forest/20 hover:border-gold hover:bg-cream transition-all"
+            >
+              <p className="text-sm font-semibold" style={{ color: "#1A3A2A" }}>Temas</p>
+              <h3 className="text-lg font-bold font-serif text-ink mt-2">Topics</h3>
+              <p className="text-sm text-muted mt-2">Explorar por categorías de interés</p>
             </Link>
           </div>
         </div>
