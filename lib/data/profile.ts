@@ -214,6 +214,14 @@ export const profileData = {
       featured: true,
     },
     {
+      company: "VTEX",
+      position: "Director Customer Experience",
+      years: "2020–2021",
+      scope: "Argentina, Paraguay, Uruguay, Bolivia",
+      countries: 4,
+      featured: false,
+    },
+    {
       company: "andabi",
       position: "Founder & CEO",
       years: "2016–2021",
@@ -312,13 +320,6 @@ export const profileData = {
         description: "Rigor profesional y ética en datos sensibles de grandes corporaciones",
         kpiNumber: 10,
       },
-    },
-    {
-      company: "VTEX",
-      position: "Director Customer Experience",
-      years: "2020–2021",
-      scope: "Argentina, Paraguay, Uruguay, Bolivia",
-      countries: 4,
     },
   ],
   
