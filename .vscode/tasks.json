@@ -1,0 +1,10 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Validar contenido para bots",
+			"type": "shell",
+			"command": "curl -s http://localhost:3000 | grep -E '(schema.org|@type|Person|hasCredential|alumni|knowsAbout|differentiators|MIT|EBITDA)' | head -30"
+		}
+	]
+}

@@ -69,17 +69,19 @@ export default function RootLayout({
     alternateName: "Prof. Nicolás Valenzuela",
     jobTitle: "Digital Transformation Advisor | Board Member",
     description:
-      "Advisor en transformación digital, retail media e IA aplicada con +25 años de experiencia en Latinoamérica. MIT Chief Digital Officer Program 2025. Experto en digital commerce, retail strategy y operaciones digitales.",
+      "Advisor en transformación digital, retail media e IA aplicada con +25 años de experiencia en Latinoamérica. MIT Chief Digital Officer Program 2026. Experto en digital commerce, retail strategy y operaciones digitales. +1.000 profesionales liderados. Top 5 Retail Media LATAM.",
     url: "https://www.nicolas.com.ar",
     image: "https://www.nicolas.com.ar/images/nicolas-valenzuela.jpg",
     email: "nicolas@nicolas.com.ar",
+    telephone: "+54",
     sameAs: [
-      "https://www.linkedin.com/in/nvalenzuela",
-      "https://twitter.com/nvalenzuela",
+      "https://www.linkedin.com/in/nicolasvalenzuela",
+      "https://twitter.com/nicolasval",
     ],
     address: {
       "@type": "PostalAddress",
       addressLocality: "Buenos Aires",
+      addressRegion: "Buenos Aires",
       addressCountry: "AR",
     },
     areaServed: [
@@ -92,6 +94,8 @@ export default function RootLayout({
     knowsAbout: [
       "Digital Commerce",
       "Retail Media",
+      "IA Agentica",
+      "Inteligencia Artificial Aplicada",
       "Retail Strategy",
       "E-commerce",
       "Omnichannel",
@@ -103,32 +107,69 @@ export default function RootLayout({
       "Data-driven Decision Making",
       "Transformación Digital Latinoamérica",
     ],
-    hasCredential: {
-      "@type": "EducationalOccupationalCredential",
-      credentialCategory: "Certificate",
-      name: "Chief Digital Officer",
-      issuedBy: {
-        "@type": "EducationalOrganization",
-        name: "MIT Professional Education",
+    hasCredential: [
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "Certificate",
+        name: "Chief Digital Officer",
+        issuedBy: {
+          "@type": "EducationalOrganization",
+          name: "MIT Professional Education",
+        },
+        year: 2026,
       },
-    },
+      {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "MBA",
+        name: "Master in Business Administration",
+        issuedBy: {
+          "@type": "EducationalOrganization",
+          name: "Universidad Católica Argentina",
+        },
+        year: 2016,
+      },
+    ],
     alumniOf: [
       {
         "@type": "CollegeOrUniversity",
         name: "MIT Professional Education",
-        description: "Chief Digital Officer Program",
+        description: "Chief Digital Officer Program - 2026",
       },
       {
         "@type": "CollegeOrUniversity",
         name: "Universidad Católica Argentina",
-        description: "MBA",
+        description: "MBA - 2014-2016",
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        name: "Universidad de Buenos Aires",
+        description: "Docencia desde 2000",
       },
     ],
     memberOf: {
       "@type": "Organization",
       name: "Cámara Argentina de Comercio Electrónico (CACE)",
       description: "Board of Directors — 8 años",
+      url: "https://www.cace.org.ar",
     },
+    jobExperience: [
+      {
+        "@type": "EmployeeRole",
+        name: "Gerente Digital Commerce",
+        employer: "Cencosud S.A.",
+        startDate: "2021-01-01",
+        endDate: "2025-12-31",
+        description: "Liderazgo de transformación digital en retail con +1.000 profesionales. Resultados: Retail Media a Top 5 LATAM (+500% crecimiento anual), Digital Commerce +200% anual, +43% EBITDA, +1 punto porcentual conversión vía IA.",
+      },
+      {
+        "@type": "EmployeeRole",
+        name: "Founder & CEO",
+        employer: "andabi",
+        startDate: "2016-01-01",
+        endDate: "2021-12-31",
+        description: "BI/Analytics Consultancy. Agencia oficial de medición para CyberMonday y HotSale (4 ediciones). 10+ clientes corporativos Fortune 500.",
+      },
+    ],
     hasOccupation: {
       "@type": "Occupation",
       name: "Digital Transformation Advisor",
@@ -137,6 +178,19 @@ export default function RootLayout({
         name: "Argentina",
       },
     },
+    award: [
+      {
+        "@type": "Thing",
+        name: "Top 5 Retail Media Networks LATAM",
+        source: "eMarketer",
+        description: "Escaló Cencosud Media a posición top 5 en Latinoamérica",
+      },
+      {
+        "@type": "Thing",
+        name: "+1.000 Profesionales Liderados",
+        description: "Liderazgo directo de equipos en múltiples divisiones de Cencosud",
+      },
+    ],
   };
 
   return (
