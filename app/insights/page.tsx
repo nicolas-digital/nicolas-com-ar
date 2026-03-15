@@ -98,40 +98,48 @@ export default function InsightsPage() {
             Explora por tema
           </h2>
           <p className="text-base md:text-lg leading-7 text-muted max-w-3xl mb-12">
-            Organiza tu lectura por áreas de interés. Cada tema agrupa contenido relacionado y recomendaciones conexas.
+            Los insights se organizan en 5 pilares del Digital Retail Knowledge Graph. Cada tema agrupa contenido relacionado y es punto de entrada para profundizar.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <Link
-              href="/topics/retail-media"
-              className="p-6 rounded-lg border-2 border-gold/30 hover:border-gold hover:bg-gold/5 transition-all"
-            >
-              <p className="text-lg font-bold font-serif text-ink">🛍️ Retail Media</p>
-              <p className="text-sm text-muted mt-2">Monetización digital y ecosistemas</p>
-            </Link>
-
-            <Link
-              href="/topics/digital-commerce"
+              href="/topics/retail-strategy"
               className="p-6 rounded-lg border-2 border-forest/30 hover:border-forest hover:bg-forest/5 transition-all"
             >
-              <p className="text-lg font-bold font-serif text-ink">💻 Digital Commerce</p>
-              <p className="text-sm text-muted mt-2">Ecommerce y omnicanalidad</p>
+              <p className="text-lg font-bold font-serif text-ink">📊 Retail Strategy</p>
+              <p className="text-sm text-muted mt-2">Modelos de negocio, ecosistemas digitales y transformación</p>
             </Link>
 
             <Link
-              href="/topics/ai"
+              href="/topics/commerce-platforms"
               className="p-6 rounded-lg border-2 border-gold/30 hover:border-gold hover:bg-gold/5 transition-all"
             >
-              <p className="text-lg font-bold font-serif text-ink">🤖 IA Aplicada</p>
-              <p className="text-sm text-muted mt-2">Casos de uso y transformación</p>
+              <p className="text-lg font-bold font-serif text-ink">🛒 Commerce Platforms</p>
+              <p className="text-sm text-muted mt-2">Arquitectura de plataformas, marketplaces y social commerce</p>
             </Link>
 
             <Link
-              href="/topics/digital-transformation"
+              href="/topics/ai-retail"
               className="p-6 rounded-lg border-2 border-forest/30 hover:border-forest hover:bg-forest/5 transition-all"
             >
-              <p className="text-lg font-bold font-serif text-ink">⚡ Transformación Digital</p>
-              <p className="text-sm text-muted mt-2">Estrategia y ejecución</p>
+              <p className="text-lg font-bold font-serif text-ink">🤖 AI & Digital Retail</p>
+              <p className="text-sm text-muted mt-2">Personalización, search, automatización y sistemas agentic</p>
+            </Link>
+
+            <Link
+              href="/topics/digital-operations"
+              className="p-6 rounded-lg border-2 border-gold/30 hover:border-gold hover:bg-gold/5 transition-all"
+            >
+              <p className="text-lg font-bold font-serif text-ink">⚙️ Digital Operations</p>
+              <p className="text-sm text-muted mt-2">Supply chain, fulfillment, automatización y frameworks operacionales</p>
+            </Link>
+
+            <Link
+              href="/topics/retail-media-marketing"
+              className="p-6 rounded-lg border-2 border-forest/30 hover:border-forest hover:bg-forest/5 transition-all"
+            >
+              <p className="text-lg font-bold font-serif text-ink">📢 Retail Media & Marketing</p>
+              <p className="text-sm text-muted mt-2">Monetización, medios propios, creator commerce y engagement</p>
             </Link>
           </div>
         </div>
