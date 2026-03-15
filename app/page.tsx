@@ -4,6 +4,10 @@ import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import CredentialsBand from "@/components/CredentialsBand";
+import ExperienceTimeline from "@/components/ExperienceTimeline";
+import Testimonials from "@/components/Testimonials";
+import ExpertiseTags from "@/components/ExpertiseTags";
+import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
   title: "Digital Strategy, Ecommerce, Retail Media & AI",
@@ -122,57 +126,15 @@ export default function HomePage() {
           </div>
 
           {/* Expertise Tags */}
-          <div className="mt-12 flex flex-wrap gap-2">
-            {["Retail Media", "IA Aplicada", "Digital Commerce", "Transformación Digital", "MIT CDO 2026"].map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full border px-3 py-1.5 text-xs font-medium transition-colors"
-                style={{
-                  borderColor: "#D4B896",
-                  color: "#8B6040",
-                  backgroundColor: "white",
-                }}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
+          <ExpertiseTags />
         </div>
       </section>
 
-      {/* Profile Section */}
-      <section className="bg-white border-b border-gray-200">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold font-serif text-ink">
-              Experiencia en transformación digital
-            </h2>
+      {/* Profile Section - Experience Timeline */}
+      <ExperienceTimeline />
 
-            <p className="mt-6 text-base leading-8 text-muted">
-              Gerente de Digital Commerce en Cencosud S.A. (2021–2025), liderando
-              las unidades digitales de Jumbo, Easy, Disco, Blaisten y Vea.
-              Escalé Cencosud Media al Top 5 Retail Media Networks de
-              Latinoamérica según eMarketer, con +43% de crecimiento en EBITDA.
-            </p>
-
-            <p className="mt-4 text-base leading-8 text-muted">
-              Director en VTEX para Argentina, Paraguay, Uruguay y Bolivia.
-              Fundador de andabi, consultora enfocada en analytics y crecimiento
-              digital.
-            </p>
-
-            <div className="mt-8">
-              <Link
-                href="/about"
-                className="text-sm font-semibold text-forest hover:text-forest/80 transition-colors inline-flex items-center gap-2"
-              >
-                Ver perfil completo
-                <span>→</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Testimonials */}
+      <Testimonials />
 
       {/* Areas Section */}
       <section className="bg-cream border-b border-gray-200">
@@ -216,29 +178,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-forest text-cream">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold font-serif leading-tight">
-              ¿Liderás una agenda de transformación digital?
-            </h2>
-
-            <p className="mt-6 text-base leading-8" style={{ color: "rgb(248, 246, 241, 0.7)" }}>
-              Acompaño a equipos de retail, tecnología y marcas en estrategia,
-              roadmaps y ejecución de transformación digital.
-            </p>
-
-            <div className="mt-8">
-              <Link
-                href="/consulting"
-                className="inline-block rounded-lg bg-cream px-8 py-3 text-sm font-semibold text-forest hover:bg-cream/90 transition-colors"
-              >
-                Contactar →
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTASection />
 
       {/* Recent Insights */}
       <section className="bg-cream border-t border-gray-200">
