@@ -1,0 +1,34 @@
+# robots.txt for nicolas.com.ar
+# SEO optimized for topical authority and knowledge graph
+
+User-agent: *
+Allow: /
+Allow: /insights/
+Allow: /topics/
+Allow: /about
+Allow: /consulting
+
+# Disallow private/admin routes
+Disallow: /admin/
+Disallow: /api/private/
+Disallow: /_next/
+Disallow: /.vercel/
+
+# Crawl delay (be friendly to crawlers)
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://www.nicolas.com.ar/sitemap.xml
+Sitemap: https://www.nicolas.com.ar/robots.txt
+
+# Priority crawling
+# Tell crawlers to prioritize insights and topics for topical authority
+User-agent: Googlebot
+Allow: /insights/
+Allow: /topics/
+Crawl-delay: 0.5
+
+User-agent: Bingbot
+Allow: /insights/
+Allow: /topics/
+Crawl-delay: 1

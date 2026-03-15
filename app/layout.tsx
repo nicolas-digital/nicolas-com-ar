@@ -69,14 +69,48 @@ export default function RootLayout({
     alternateName: "Prof. Nicolás Valenzuela",
     jobTitle: "Digital Transformation Advisor | Board Member",
     description:
-      "Advisor en transformación digital, retail media e IA aplicada con +20 años de experiencia en Latinoamérica. MIT Chief Digital Officer Program 2025. Board of Directors CACE.",
+      "Advisor en transformación digital, retail media e IA aplicada con +25 años de experiencia en Latinoamérica. MIT Chief Digital Officer Program 2025. Experto en digital commerce, retail strategy y operaciones digitales.",
     url: "https://www.nicolas.com.ar",
     image: "https://www.nicolas.com.ar/images/nicolas-valenzuela.jpg",
     email: "nicolas@nicolas.com.ar",
+    sameAs: [
+      "https://www.linkedin.com/in/nvalenzuela",
+      "https://twitter.com/nvalenzuela",
+    ],
     address: {
       "@type": "PostalAddress",
       addressLocality: "Buenos Aires",
       addressCountry: "AR",
+    },
+    areaServed: [
+      { "@type": "Country", "name": "Argentina" },
+      { "@type": "Country", "name": "Mexico" },
+      { "@type": "Country", "name": "Brazil" },
+      { "@type": "Country", "name": "Colombia" },
+      { "@type": "Country", "name": "Chile" },
+    ],
+    knowsAbout: [
+      "Digital Commerce",
+      "Retail Media",
+      "Retail Strategy",
+      "E-commerce",
+      "Omnichannel",
+      "Artificial Intelligence",
+      "Digital Transformation",
+      "Retail Operations",
+      "Supply Chain",
+      "Commerce Platforms",
+      "Data-driven Decision Making",
+      "Transformación Digital Latinoamérica",
+    ],
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "Certificate",
+      name: "Chief Digital Officer",
+      issuedBy: {
+        "@type": "EducationalOrganization",
+        name: "MIT Professional Education",
+      },
     },
     alumniOf: [
       {
@@ -95,21 +129,6 @@ export default function RootLayout({
       name: "Cámara Argentina de Comercio Electrónico (CACE)",
       description: "Board of Directors — 8 años",
     },
-    worksFor: {
-      "@type": "Organization",
-      name: "Hylea",
-      url: "https://www.hylea.systems",
-    },
-    knowsAbout: [
-      "Retail Media",
-      "Digital Commerce",
-      "Inteligencia Artificial aplicada a negocios",
-      "Transformación Digital",
-      "Ecommerce Latinoamérica",
-      "Omnicanalidad",
-      "Data-driven decision making",
-    ],
-    sameAs: ["https://www.linkedin.com/in/nvalenzuela/"],
     hasOccupation: {
       "@type": "Occupation",
       name: "Digital Transformation Advisor",
