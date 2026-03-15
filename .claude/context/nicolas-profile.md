@@ -13,7 +13,7 @@ para organizaciones que necesitan ejecución concreta, no solo
 estrategia en papel.
 
 ## Credenciales clave
-- MIT Professional Education — Chief Digital Officer Program (2025)
+- MIT Professional Education — Chief Digital Officer Program (2026)
 - MBA — Universidad Católica Argentina (2014–2016)
 - Board of Directors — CACE (8 años, activo)
 - Fundador — andabi | Analytics & Digital Business Growth (2016–2021)
@@ -61,13 +61,15 @@ Gestión de negocios digitales · Innovación aplicada · Latam
 - Fotos en biblioteca NY para /about
 
 ## Videos y conferencias (para sección /talks)
-Pendiente: agregar links de YouTube/LinkedIn de cada charla
+Playlist YouTube: https://www.youtube.com/watch?v=PBdczRfTpPY&list=PLEecx-sXSaZ2_k6yTq4BumjObnOq6kpKC
+(Incluye múltiples charlas con timestamps — usar para crear /talks section cuando se implemente)
 
 ## Conexión con Hylea
 Nicolás es fundador de Hylea — empresa de transformación digital
-que está construyendo. El sitio nicolas.com.ar referencia a Hylea
-de forma estratégica en /consulting.
-URL: https://www.hylea.systems
+que está en fase de desarrollo/construcción (no productiva aún).
+El sitio nicolas.com.ar puede referenciar a Hylea de forma estratégica
+en /consulting cuando esté ready.
+URL: https://www.hylea.systems (en construcción)
 
 ## Tono de comunicación
 - Español con términos técnicos en inglés

@@ -94,7 +94,7 @@ export default function HomePage() {
       >
         <div className="mx-auto max-w-6xl px-4 md:px-6">
           <p className="text-[10px] md:text-xs text-center" style={{ color: "#8B7355" }}>
-            Profesor en UdeSA · UBA · Torcuato Di Tella · Board CACE 8 años · MIT CDO Program 2025
+            Profesor en UdeSA · UBA · Torcuato Di Tella · Board CACE 8 años · MIT Chief Digital Officer 2026
           </p>
         </div>
       </section>
@@ -125,7 +125,7 @@ export default function HomePage() {
 
           {/* Expertise Tags */}
           <div className="mt-12 flex flex-wrap gap-2">
-            {["Retail Media", "IA Aplicada", "Digital Commerce", "Transformación Digital", "MIT CDO"].map((tag) => (
+            {["Retail Media", "IA Aplicada", "Digital Commerce", "Transformación Digital", "MIT CDO 2026"].map((tag) => (
               <span
                 key={tag}
                 className="rounded-full border px-3 py-1.5 text-xs font-medium transition-colors"
