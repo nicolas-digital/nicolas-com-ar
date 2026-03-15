@@ -46,7 +46,7 @@ export default async function TopicPage({ params }: Props) {
     notFound();
   }
 
-  const posts = getPostsByTopic(topic.title);
+  const posts = getPostsByTopic(topic.slug);
 
   // Obtener temas relacionados
   const allTopics = getAllTopics();
