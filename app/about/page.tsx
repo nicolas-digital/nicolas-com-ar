@@ -103,7 +103,7 @@ export default function AboutPage() {
                 Combina liderazgo en organizaciones de retail, plataformas tecnológicas y proyectos de transformación digital. Desde axeso5 hasta Cencosud, pasando por OLX, Intellignos, VTEX y andabi—cada rol ha sido una oportunidad para profundizar en ecommerce, marketing digital, customer experience y monetización de datos.
               </p>
               <p className="mt-4 leading-7 text-muted">
-                Docente desde 2000 en universidades como UBA, UCEMA, ITBA y Universidad de Buenos Aires. Speaker en jornadas sobre innovación digital, marketing y emprendedorismo.
+                Docente desde 2000 en universidades como UBA, UCEMA, ITBA, Universidad de Buenos Aires, Universidad de San Andrés y Universidad de Palermo. Speaker en jornadas sobre innovación digital, marketing y emprendedorismo.
               </p>
             </div>
 

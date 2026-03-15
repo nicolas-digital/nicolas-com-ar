@@ -83,7 +83,7 @@ const events: TimelineEvent[] = [
     year: "2000–2012",
     title: "Docencia & Consultoría",
     description: "Google Analytics & Marketing Digital",
-    role: "UBA, UCEMA, ITBA, UNIDAD BUENOS AIRES + Speaker",
+    role: "UBA, UCEMA, ITBA, Universidad de San Andrés, Universidad de Palermo + Speaker",
     highlight: false,
   },
 ];
