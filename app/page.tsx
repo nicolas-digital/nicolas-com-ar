@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
+import AnimatedCounter from "@/components/AnimatedCounter";
+import CredentialsBand from "@/components/CredentialsBand";
 
 export const metadata: Metadata = {
   title: "Digital Strategy, Ecommerce, Retail Media & AI",
@@ -72,55 +74,51 @@ export default function HomePage() {
             </div>
 
             {/* Right: Photo */}
-            <div className="flex justify-start md:justify-end">
-              <Image
-                src="/images/nicolas-valenzuela.png"
-                alt="Nicolás Valenzuela — Digital Transformation Advisor"
-                width={280}
-                height={280}
-                priority
-                sizes="(max-width: 768px) 96px, 280px"
-                className="rounded-full md:rounded-2xl w-24 h-24 md:w-80 md:h-80 object-cover object-top shadow-lg flex-shrink-0"
-              />
+            <div className="flex justify-start md:justify-end relative">
+              <div className="relative group">
+                <Image
+                  src="/images/nicolas-valenzuela.png"
+                  alt="Nicolás Valenzuela — Digital Transformation Advisor"
+                  width={280}
+                  height={280}
+                  priority
+                  sizes="(max-width: 768px) 96px, 280px"
+                  className="rounded-full md:rounded-2xl w-24 h-24 md:w-80 md:h-80 object-cover object-top shadow-lg flex-shrink-0"
+                />
+                <a
+                  href="https://www.youtube.com/watch?v=PBdczRfTpPY&list=PLEecx-sXSaZ2_k6yTq4BumjObnOq6kpKC"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 flex items-center justify-center rounded-full md:rounded-2xl bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+                >
+                  <div className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-white/90 rounded-full group-hover:bg-white transition-colors">
+                    <svg
+                      className="w-6 h-6 md:w-8 md:h-8 text-forest ml-1"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                    </svg>
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Credentials Band */}
-      <section
-        className="border-b border-gray-200 py-6"
-        style={{ backgroundColor: "#EEE8DE" }}
-      >
-        <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <p className="text-[10px] md:text-xs text-center" style={{ color: "#8B7355" }}>
-            Profesor en UdeSA · UBA · Torcuato Di Tella · Board CACE 8 años · MIT Chief Digital Officer 2026
-          </p>
-        </div>
-      </section>
+      <CredentialsBand />
 
       {/* Metrics */}
       <section className="border-b border-gray-200 bg-cream">
         <div className="mx-auto max-w-6xl px-6 py-16">
           <div className="flex flex-row items-center justify-start gap-8 md:gap-12">
-            <div className="flex flex-col items-start">
-              <p className="text-xl md:text-2xl font-bold font-serif text-forest">+20 años</p>
-              <p className="mt-2 text-xs text-muted">en digital commerce</p>
-            </div>
-
+            <AnimatedCounter end={20} duration={2500} label="en digital commerce" />
             <div className="border-l border-gray-300 h-12" />
-
-            <div className="flex flex-col items-start">
-              <p className="text-xl md:text-2xl font-bold font-serif text-forest">5</p>
-              <p className="mt-2 text-xs text-muted">universidades</p>
-            </div>
-
+            <AnimatedCounter end={5} duration={2000} label="universidades" />
             <div className="border-l border-gray-300 h-12" />
-
-            <div className="flex flex-col items-start">
-              <p className="text-xl md:text-2xl font-bold font-serif text-forest">Top 5</p>
-              <p className="mt-2 text-xs text-muted">Retail Media Latam</p>
-            </div>
+            <AnimatedCounter end="Top 5" duration={1500} label="Retail Media Latam" />
           </div>
 
           {/* Expertise Tags */}
