@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
+import { profileData } from "@/lib/data/profile";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import CredentialsBand from "@/components/CredentialsBand";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
@@ -44,7 +45,7 @@ export default function HomePage() {
 
               {/* Tags */}
               <div className="mt-6 md:mt-8 flex flex-wrap gap-2">
-                {["Retail", "Ecommerce", "Retail Media", "IA aplicada", "Innovación", "Negocios digitales"].map((tag) => (
+                {profileData.heroTags.map((tag) => (
                   <span
                     key={tag}
                     className="rounded-full border px-2.5 md:px-3 py-1 md:py-1.5 text-xs font-medium"
@@ -118,11 +119,22 @@ export default function HomePage() {
       <section className="border-b border-gray-200 bg-cream">
         <div className="mx-auto max-w-6xl px-6 py-16">
           <div className="flex flex-row items-center justify-start gap-8 md:gap-12">
-            <AnimatedCounter end={20} duration={2500} label="en digital commerce" />
-            <div className="border-l border-gray-300 h-12" />
-            <AnimatedCounter end={5} duration={2000} label="universidades" />
-            <div className="border-l border-gray-300 h-12" />
-            <AnimatedCounter end="Top 5" duration={1500} label="Retail Media Latam" />
+            {profileData.homeMetrics.map((metric, idx) => (
+              <div key={idx} className="flex items-center gap-8 md:gap-12">
+                <div>
+                  <div className="text-3xl md:text-4xl font-bold text-ink">
+                    {metric.plus && <span>{metric.plus}</span>}
+                    {typeof metric.end === "string" ? metric.end : (
+                      <span>{metric.end}</span>
+                    )}
+                  </div>
+                  <p className="text-xs md:text-sm text-muted mt-1">{metric.label}</p>
+                </div>
+                {idx < profileData.homeMetrics.length - 1 && (
+                  <div className="border-l border-gray-300 h-12" />
+                )}
+              </div>
+            ))}
           </div>
 
           {/* Expertise Tags */}
@@ -144,23 +156,7 @@ export default function HomePage() {
           </h2>
 
           <div className="grid gap-6 md:grid-cols-3">
-            {[
-              {
-                title: "Digital Commerce",
-                description:
-                  "Modelos de crecimiento digital, operación ecommerce y omnicanalidad.",
-              },
-              {
-                title: "Retail Media",
-                description:
-                  "Monetización digital, ecosistemas retailer-marca y datos como ingresos.",
-              },
-              {
-                title: "Inteligencia Artificial",
-                description:
-                  "Casos de uso de IA aplicados a negocio, operación y customer experience.",
-              },
-            ].map((area) => (
+            {profileData.expertise.map((area) => (
               <div
                 key={area.title}
                 className="rounded-lg border border-gray-300 bg-white p-6 hover:border-forest/30 hover:shadow-md transition-all"

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { profileData } from "@/lib/data/profile";
 
 export const metadata: Metadata = {
   title: "Sobre Prof. Nicolás Valenzuela",
@@ -109,22 +110,24 @@ export default function AboutPage() {
 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="p-6 rounded-lg border-2 border-gold/30" style={{ backgroundColor: "rgba(200, 169, 110, 0.05)" }}>
-                <p className="text-3xl md:text-4xl font-bold font-serif text-gold">25+</p>
-                <p className="mt-2 text-sm text-muted">Años en digital</p>
-              </div>
-              <div className="p-6 rounded-lg border-2 border-forest/30" style={{ backgroundColor: "rgba(26, 58, 42, 0.05)" }}>
-                <p className="text-3xl md:text-4xl font-bold font-serif" style={{ color: "#1A3A2A" }}>4</p>
-                <p className="mt-2 text-sm text-muted">Países en operación</p>
-              </div>
-              <div className="p-6 rounded-lg border-2 border-gold/30" style={{ backgroundColor: "rgba(200, 169, 110, 0.05)" }}>
-                <p className="text-3xl md:text-4xl font-bold font-serif text-gold">100+</p>
-                <p className="mt-2 text-sm text-muted">Empresas asesoradas</p>
-              </div>
-              <div className="p-6 rounded-lg border-2 border-forest/30" style={{ backgroundColor: "rgba(26, 58, 42, 0.05)" }}>
-                <p className="text-3xl md:text-4xl font-bold font-serif" style={{ color: "#1A3A2A" }}>10+</p>
-                <p className="mt-2 text-sm text-muted">Universidades</p>
-              </div>
+              {profileData.aboutStats.map((stat, idx) => {
+                const isGold = idx === 0 || idx === 2;
+                return (
+                  <div 
+                    key={idx}
+                    className="p-6 rounded-lg border-2" 
+                    style={{
+                      borderColor: isGold ? "rgba(200, 169, 110, 0.3)" : "rgba(26, 58, 42, 0.3)",
+                      backgroundColor: isGold ? "rgba(200, 169, 110, 0.05)" : "rgba(26, 58, 42, 0.05)"
+                    }}
+                  >
+                    <p className="text-3xl md:text-4xl font-bold font-serif" style={{ color: isGold ? "#C8A96E" : "#1A3A2A" }}>
+                      {stat.value}
+                    </p>
+                    <p className="mt-2 text-sm text-muted">{stat.label}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -141,26 +144,24 @@ export default function AboutPage() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6 rounded-lg border-2 border-forest/30 hover:border-gold transition-colors" style={{ backgroundColor: "rgba(26, 58, 42, 0.05)" }}>
-              <h3 className="text-lg font-bold font-serif text-ink">Digital Commerce</h3>
-              <p className="mt-3 leading-6 text-muted text-sm">
-                Modelos de crecimiento, operación ecommerce, omnicanalidad y capacidades organizacionales para negocios digitales.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-lg border-2 border-gold/30 hover:border-gold transition-colors" style={{ backgroundColor: "rgba(200, 169, 110, 0.05)" }}>
-              <h3 className="text-lg font-bold font-serif text-ink">Retail Media</h3>
-              <p className="mt-3 leading-6 text-muted text-sm">
-                Monetización digital, ecosistemas entre retailers y marcas, y el rol de los datos en nuevas fuentes de ingresos.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-lg border-2 border-forest/30 hover:border-gold transition-colors" style={{ backgroundColor: "rgba(26, 58, 42, 0.05)" }}>
-              <h3 className="text-lg font-bold font-serif text-ink">Inteligencia Artificial</h3>
-              <p className="mt-3 leading-6 text-muted text-sm">
-                Casos de uso de IA aplicados a negocio, operación y experiencia de cliente en entornos digitales.
-              </p>
-            </div>
+            {profileData.expertise.map((area, idx) => {
+              const isGold = idx === 1;
+              return (
+                <div 
+                  key={area.title}
+                  className="p-6 rounded-lg border-2 hover:border-gold transition-colors" 
+                  style={{
+                    borderColor: isGold ? "rgba(200, 169, 110, 0.3)" : "rgba(26, 58, 42, 0.3)",
+                    backgroundColor: isGold ? "rgba(200, 169, 110, 0.05)" : "rgba(26, 58, 42, 0.05)"
+                  }}
+                >
+                  <h3 className="text-lg font-bold font-serif text-ink">{area.title}</h3>
+                  <p className="mt-3 leading-6 text-muted text-sm">
+                    {area.shortDescription}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -178,30 +179,19 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl">
-            <div>
-              <p className="text-sm font-semibold" style={{ color: "#C8A96E" }}>Diagnóstico</p>
-              <p className="mt-2 text-sm leading-6 text-muted">
-                Análisis profundo de contexto, capacidades y oportunidades en tu organización.
-              </p>
-            </div>
-            <div>
-              <p className="text-sm font-semibold" style={{ color: "#1A3A2A" }}>Priorización</p>
-              <p className="mt-2 text-sm leading-6 text-muted">
-                Identificación de oportunidades de mayor impacto y viabilidad.
-              </p>
-            </div>
-            <div>
-              <p className="text-sm font-semibold" style={{ color: "#C8A96E" }}>Roadmap</p>
-              <p className="mt-2 text-sm leading-6 text-muted">
-                Diseño de ruta clara con hitos, recursos y timing definidos.
-              </p>
-            </div>
-            <div>
-              <p className="text-sm font-semibold" style={{ color: "#1A3A2A" }}>Ejecución</p>
-              <p className="mt-2 text-sm leading-6 text-muted">
-                Acompañamiento a equipos en la transformación de estrategia en resultados reales.
-              </p>
-            </div>
+            {profileData.methodology.map((item, idx) => {
+              const isGold = idx % 2 === 0;
+              return (
+                <div key={idx}>
+                  <p className="text-sm font-semibold" style={{ color: isGold ? "#C8A96E" : "#1A3A2A" }}>
+                    {item.step}
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-muted">
+                    {item.description}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
