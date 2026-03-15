@@ -180,6 +180,21 @@ export default function RootLayout({
     },
     award: [
       {
+        "@type": "Award",
+        name: "Premio Retail Digital",
+        description: "Reconocimiento por trayectoria y aportes significativos a la transformación tecnológica dentro de la industria minorista. Integración de estrategias omnicanal y reimaginación del retail uniendo mundo físico con digital.",
+        awardDate: "2025-05",
+        awarding: {
+          "@type": "Organization",
+          name: "Web Retail",
+          url: "https://www.webretail.com.ar",
+          description: "Comunidad de expertos en transformación digital del retail",
+        },
+        event: "Retail Day 2025",
+        eventDate: "2025-05",
+        eventLocation: "Buenos Aires, Argentina",
+      },
+      {
         "@type": "Thing",
         name: "Top 5 Retail Media Networks LATAM",
         source: "eMarketer",

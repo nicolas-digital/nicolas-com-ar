@@ -23,6 +23,15 @@ const buildTimelineEvents = (): TimelineEvent[] => {
     role: "Hito de estudio",
     highlight: false,
   });
+
+  // Add Retail Digital Award
+  events.push({
+    year: "Mayo 2025",
+    title: "Premio Retail Digital",
+    description: "Reconocimiento por trayectoria y aportes a la transformación tecnológica del retail",
+    role: "Web Retail - Retail Day 2025 Buenos Aires",
+    highlight: true,
+  });
   
   // Add leadership experience from profileData
   profileData.leadershipExperience.forEach((exp) => {

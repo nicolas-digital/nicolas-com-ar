@@ -359,6 +359,27 @@ export const profileData = {
     },
   ],
   
+  // Key Awards & Recognition
+  awards: [
+    {
+      year: 2025,
+      month: "Mayo",
+      title: "Premio Retail Digital",
+      organization: "Web Retail",
+      organizationUrl: "https://www.webretail.com.ar",
+      event: "Retail Day 2025",
+      location: "Buenos Aires, Argentina",
+      description: "Reconocimiento por trayectoria y aportes significativos a la transformación tecnológica dentro de la industria minorista",
+      highlights: [
+        "Integración de estrategias omnicanal",
+        "Reimaginación del retail (físico + digital)",
+        "Mejora de experiencia del cliente",
+      ],
+      category: "Industry Recognition",
+      highlight: true,
+    },
+  ],
+  
   // Social & Links
   social: {
     linkedin: "https://linkedin.com/in/nicolasvalenzuela",
