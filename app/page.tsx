@@ -18,7 +18,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="border-b border-gray-200 bg-cream">
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-          <div className="grid gap-12 md:grid-cols-2 md:gap-16 items-start">
+          <div className="grid grid-cols-[1fr_auto] gap-4 md:grid-cols-2 md:gap-16 items-start">
             {/* Left: Text */}
             <div>
               {/* Eyebrow */}
@@ -28,13 +28,30 @@ export default function HomePage() {
 
               {/* H1 */}
               <h1 className="mt-6 text-4xl md:text-5xl font-bold leading-tight font-serif">
-                Estrategia digital con foco y ejecución real
+                Convierto visión estratégica en innovación con resultados reales
               </h1>
 
               {/* Subtitle */}
               <p className="mt-6 text-base leading-8 text-muted">
-                +20 años acompañando a retailers y marcas en Latinoamérica.
+                Retail, ecommerce, retail media e IA aplicada — acompaño a CEOs y organizaciones en Latinoamérica a transformar sus negocios digitales con ejecución concreta, no solo estrategia en papel.
               </p>
+
+              {/* Tags */}
+              <div className="mt-8 flex flex-wrap gap-2">
+                {["Retail", "Ecommerce", "Retail Media", "IA aplicada", "Innovación", "Negocios digitales"].map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border px-3 py-1.5 text-xs font-medium"
+                    style={{
+                      borderColor: "#D4B896",
+                      color: "#8B6040",
+                      backgroundColor: "white",
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
 
               {/* CTAs */}
               <div className="mt-10 flex flex-wrap gap-3">
@@ -55,18 +72,16 @@ export default function HomePage() {
             </div>
 
             {/* Right: Photo */}
-            <div className="flex justify-center md:justify-end">
-              <div className="relative w-full max-w-xs">
-                <Image
-                  src="/images/nicolas-valenzuela.png"
-                  alt="Nicolás Valenzuela — Digital Transformation Advisor"
-                  width={280}
-                  height={280}
-                  priority
-                  sizes="(max-width: 768px) 120px, 280px"
-                  className="rounded-2xl object-cover object-top w-full h-auto shadow-lg"
-                />
-              </div>
+            <div className="flex justify-start md:justify-end">
+              <Image
+                src="/images/nicolas-valenzuela.png"
+                alt="Nicolás Valenzuela — Digital Transformation Advisor"
+                width={280}
+                height={280}
+                priority
+                sizes="(max-width: 768px) 96px, 280px"
+                className="rounded-full md:rounded-2xl w-24 h-24 md:w-80 md:h-80 object-cover object-top shadow-lg flex-shrink-0"
+              />
             </div>
           </div>
         </div>
@@ -77,8 +92,8 @@ export default function HomePage() {
         className="border-b border-gray-200 py-6"
         style={{ backgroundColor: "#EEE8DE" }}
       >
-        <div className="mx-auto max-w-6xl px-6">
-          <p className="text-xs text-center" style={{ color: "#8B7355" }}>
+        <div className="mx-auto max-w-6xl px-4 md:px-6">
+          <p className="text-[10px] md:text-xs text-center" style={{ color: "#8B7355" }}>
             Profesor en UdeSA · UBA · Torcuato Di Tella · Board CACE 8 años · MIT CDO Program 2025
           </p>
         </div>
@@ -87,23 +102,23 @@ export default function HomePage() {
       {/* Metrics */}
       <section className="border-b border-gray-200 bg-cream">
         <div className="mx-auto max-w-6xl px-6 py-16">
-          <div className="grid gap-12 md:grid-cols-3">
+          <div className="flex flex-row items-center justify-start gap-8 md:gap-12">
             <div className="flex flex-col items-start">
-              <p className="text-2xl md:text-3xl font-bold font-serif text-forest">+20 años</p>
+              <p className="text-xl md:text-2xl font-bold font-serif text-forest">+20 años</p>
               <p className="mt-2 text-xs text-muted">en digital commerce</p>
             </div>
 
-            <div className="hidden md:block border-l border-gray-300" />
+            <div className="border-l border-gray-300 h-12" />
 
             <div className="flex flex-col items-start">
-              <p className="text-2xl md:text-3xl font-bold font-serif text-forest">5</p>
+              <p className="text-xl md:text-2xl font-bold font-serif text-forest">5</p>
               <p className="mt-2 text-xs text-muted">universidades</p>
             </div>
 
-            <div className="hidden md:block border-l border-gray-300" />
+            <div className="border-l border-gray-300 h-12" />
 
             <div className="flex flex-col items-start">
-              <p className="text-2xl md:text-3xl font-bold font-serif text-forest">Top 5</p>
+              <p className="text-xl md:text-2xl font-bold font-serif text-forest">Top 5</p>
               <p className="mt-2 text-xs text-muted">Retail Media Latam</p>
             </div>
           </div>
