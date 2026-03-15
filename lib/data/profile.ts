@@ -214,18 +214,111 @@ export const profileData = {
       featured: true,
     },
     {
+      company: "andabi",
+      position: "Founder & CEO",
+      years: "2016–2021",
+      teamSize: 8,
+      teamDescription: "equipo especializado en Analytics y Strategy",
+      scope: "Argentina (atendiendo clientes en toda LATAM)",
+      description: "BI/Analytics Consultancy & Digital Strategy",
+      type: "founder",
+      featured: true,
+      
+      // Key Achievements
+      achievements: [
+        {
+          title: "Official BI/Analytics Agency for CACE HotSale & Cybermonday",
+          metric: "4 Ediciones Consecutivas (2016–2020)",
+          description: "Liderazgo en arquitetura de medición para los eventos de ecommerce más grandes de Argentina",
+          impact: "Benchmark para más de 1.000 marcas",
+          kpiNumber: 1,
+        },
+        {
+          title: "Sustained Business Trajectory",
+          metric: "+5 Años de Operación Continua",
+          description: "Rentabilidad sostenida en consultoría de nicho",
+          impact: "Visión empresarial sólida y ejecución",
+          kpiNumber: 2,
+        },
+        {
+          title: "Strategic Client Portfolio",
+          metric: "10+ Clientes Corporativos (Fortune 500)",
+          description: "Gestión de proyectos para líderes de industria en Banca, Retail y Moda",
+          clients: ["Walmart", "Mastercard", "L'Oréal", "BBVA", "Globant"],
+          kpiNumber: 3,
+        },
+      ],
+      
+      // Project Execution
+      projectExecution: {
+        title: "Volumen de Proyectos Ejecutados",
+        metric: "+15 Proyectos Especializados",
+        categories: ["Auditoría", "BI", "GTM", "Estrategia de Performance"],
+        description: "Diagnóstico, diseño e implementación de arquitecturas de datos",
+        kpiNumber: 4,
+      },
+      
+      // Strategic Partnerships
+      partnerships: {
+        title: "Consolidación de Alianzas Estratégicas",
+        metric: "+3 Partnerships de Alto Valor",
+        partners: ["RAPP Argentina", "CookingMetrics", "Google Partners"],
+        description: "Soluciones integrales end-to-end",
+        kpiNumber: 5,
+      },
+      
+      // Data Governance
+      dataGovernance: {
+        title: "Rigor en Arquitectura Analítica",
+        metric: "100% de Trazabilidad en Calidad del Dato",
+        technologies: ["Google Analytics", "GTM", "Data Warehousing"],
+        description: "Data Governance integral para todos los proyectos",
+        specialization: "Integridad y fiabilidad de información crítica",
+        kpiNumber: 6,
+      },
+      
+      // Process Efficiency
+      processEfficiency: {
+        title: "Eficiencia en Definición de Procesos",
+        metric: "Reducción del 25% en Onboarding",
+        description: "Documentación y estandarización de procesos BI/Analytics",
+        impact: "Entrega más rápida y consistente",
+        kpiNumber: 7,
+      },
+      
+      // Knowledge Transfer
+      knowledgeTransfer: {
+        title: "Impacto en Transferencia de Conocimiento",
+        metric: "+5 Programas de Capacitación",
+        venues: ["CapacitarteUBA", "In-company"],
+        description: "Especialización en Analytics y BI a nivel universitario",
+        impact: "Multiplicar impacto más allá de implementación técnica",
+        kpiNumber: 8,
+      },
+      
+      // Strategic Services Integration
+      strategicServices: {
+        title: "Integración de Servicios Estratégicos",
+        metric: "4 Pilares Consistentes",
+        pillars: ["Estrategia", "Performance", "SEO", "Business Intelligence"],
+        description: "Perfil integral 360° con alineación perfecta",
+        kpiNumber: 9,
+      },
+      
+      // Compliance & Confidentiality
+      compliance: {
+        title: "Experiencia en Entornos de Alta Confidencialidad",
+        metric: "100% de Cumplimiento de NDAs",
+        description: "Rigor profesional y ética en datos sensibles de grandes corporaciones",
+        kpiNumber: 10,
+      },
+    },
+    {
       company: "VTEX",
       position: "Director Customer Experience",
       years: "2020–2021",
       scope: "Argentina, Paraguay, Uruguay, Bolivia",
       countries: 4,
-    },
-    {
-      company: "andabi",
-      position: "Founder & CEO",
-      years: "2016–2021",
-      description: "Analytics & Digital Business Growth",
-      type: "founder",
     },
   ],
   
