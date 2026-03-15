@@ -10,50 +10,80 @@ interface TimelineEvent {
 
 const events: TimelineEvent[] = [
   {
-    year: "1999",
-    title: "Inicio en Digital",
-    description: "Primeros pasos en transformación digital",
+    year: "2025–2026",
+    title: "MIT Chief Digital Officer Program",
+    description: "Formación avanzada en transformación digital y liderazgo",
+    role: "Hito de estudio",
     highlight: false,
   },
   {
-    year: "2005",
-    title: "Evolución Retail",
-    description: "Especialización en retail y ecommerce",
+    year: "2021–2025",
+    title: "Cencosud S.A.",
+    description: "Escaló al Top 5 Retail Media Latam",
+    role: "Gerente Digital Commerce (+43% EBITDA)",
+    highlight: true,
+  },
+  {
+    year: "2020–2021",
+    title: "VTEX",
+    description: "Director Customer Experience",
+    role: "4 países: Argentina, Paraguay, Uruguay, Bolivia",
     highlight: false,
   },
   {
-    year: "2016",
-    title: "MBA",
-    description: "Universidad Católica Argentina",
-    role: "Educación formal",
-    highlight: false,
-  },
-  {
-    year: "2016",
-    title: "Fundación andabi",
+    year: "2016–2021",
+    title: "andabi",
     description: "Analytics & Digital Business Growth",
     role: "CEO & Founder",
     highlight: false,
   },
   {
-    year: "2020",
-    title: "VTEX",
-    description: "Director Customer Experience",
-    role: "Argentina, Paraguay, Uruguay, Bolivia",
+    year: "2016",
+    title: "MBA UCA",
+    description: "Universidad Católica Argentina",
+    role: "Educación formal",
     highlight: false,
   },
   {
-    year: "2021",
-    title: "Cencosud Media",
-    description: "Escaló al Top 5 Retail Media Latam",
-    role: "+43% EBITDA Growth",
-    highlight: true,
+    year: "2012–2015",
+    title: "axeso5 (CMO)",
+    description: "Chief Marketing Officer América Latina & Brasil",
+    role: "Estrategia, lanzamientos, medios (BTL/PR), $2M en campañas 2013",
+    highlight: false,
   },
   {
-    year: "2026",
-    title: "MIT CDO Program",
-    description: "Chief Digital Officer",
-    role: "Educación permanente",
+    year: "2012",
+    title: "OLX (Analytics)",
+    description: "Google Analytics Consultant",
+    role: "96 sitios en 85 países, 4 continentes",
+    highlight: false,
+  },
+  {
+    year: "2010–2012",
+    title: "Intellignos",
+    description: "Partner & Web Analytics Project Leader",
+    role: "Clientes: Mercadolibre, Santander, OSDE, Fox, Intramed",
+    highlight: false,
+  },
+  {
+    year: "2007–2010",
+    title: "SolucionesIdea",
+    description: "Director de Medios Digitales",
+    role: "Google Adwords, posicionamiento web, analytics",
+    highlight: false,
+  },
+  {
+    year: "2005–2009",
+    title: "Consultor de Medios Digitales",
+    description: "Google Adwords & Marketing Digital",
+    role: "Campañas para empresas Latinoamérica",
+    highlight: false,
+  },
+  {
+    year: "2000–2012",
+    title: "Docencia & Consultoría",
+    description: "Google Analytics & Marketing Digital",
+    role: "UBA, UCEMA, ITBA, UNIDAD BUENOS AIRES + Speaker",
     highlight: false,
   },
 ];
@@ -63,7 +93,7 @@ export default function ExperienceTimeline() {
     <section className="bg-white border-b border-gray-200">
       <div className="mx-auto max-w-6xl px-6 py-20">
         <h2 className="text-3xl md:text-4xl font-bold font-serif text-ink mb-16">
-          Trayectoria: 1999 → 2026
+          Trayectoria: 2026 ← 1999
         </h2>
 
         {/* Desktop Timeline */}

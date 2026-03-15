@@ -23,7 +23,7 @@ export default function HomePage() {
     <main className="bg-cream text-ink">
       {/* Hero Section */}
       <section className="border-b border-gray-200 bg-cream">
-        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+        <div className="mx-auto max-w-6xl px-6 py-12 md:py-24">
           <div className="grid grid-cols-[1fr_auto] gap-4 md:grid-cols-2 md:gap-16 items-start">
             {/* Left: Text */}
             <div>
@@ -33,21 +33,21 @@ export default function HomePage() {
               </p>
 
               {/* H1 */}
-              <h1 className="mt-6 text-4xl md:text-5xl font-bold leading-tight font-serif">
+              <h1 className="mt-4 md:mt-6 text-2xl md:text-5xl font-bold leading-tight font-serif">
                 Convierto visión estratégica en innovación con resultados reales
               </h1>
 
               {/* Subtitle */}
-              <p className="mt-6 text-base leading-8 text-muted">
+              <p className="mt-4 md:mt-6 text-sm md:text-base leading-6 md:leading-8 text-muted">
                 Retail, ecommerce, retail media e IA aplicada — acompaño a CEOs y organizaciones en Latinoamérica a transformar sus negocios digitales con ejecución concreta, no solo estrategia en papel.
               </p>
 
               {/* Tags */}
-              <div className="mt-8 flex flex-wrap gap-2">
+              <div className="mt-6 md:mt-8 flex flex-wrap gap-2">
                 {["Retail", "Ecommerce", "Retail Media", "IA aplicada", "Innovación", "Negocios digitales"].map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border px-3 py-1.5 text-xs font-medium"
+                    className="rounded-full border px-2.5 md:px-3 py-1 md:py-1.5 text-xs font-medium"
                     style={{
                       borderColor: "#D4B896",
                       color: "#8B6040",
@@ -60,17 +60,17 @@ export default function HomePage() {
               </div>
 
               {/* CTAs */}
-              <div className="mt-10 flex flex-wrap gap-3">
+              <div className="mt-6 md:mt-10 flex flex-wrap gap-2 md:gap-3">
                 <Link
                   href="/consulting"
-                  className="rounded-full bg-ink px-6 py-2.5 text-sm font-semibold text-cream hover:bg-ink/90 transition-colors"
+                  className="rounded-full bg-ink px-5 md:px-6 py-2 md:py-2.5 text-xs md:text-sm font-semibold text-cream hover:bg-ink/90 transition-colors"
                 >
                   Hablemos →
                 </Link>
 
                 <Link
                   href="/insights"
-                  className="rounded-full border border-ink px-6 py-2.5 text-sm font-semibold text-ink hover:bg-cream/50 transition-colors"
+                  className="rounded-full border border-ink px-5 md:px-6 py-2 md:py-2.5 text-xs md:text-sm font-semibold text-ink hover:bg-cream/50 transition-colors"
                 >
                   Ver insights
                 </Link>
