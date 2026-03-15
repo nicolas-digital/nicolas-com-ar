@@ -6,7 +6,7 @@ import { getAllPosts } from "@/lib/posts";
 export const metadata: Metadata = {
   title: "Temas | Prof. Nicolás Valenzuela",
   description:
-    "Explorar temas de especialización: Digital Commerce, Retail Media, Inteligencia Artificial y Transformación Digital. Análisis, frameworks y perspectivas sobre el futuro del comercio digital en América Latina.",
+    "Digital Retail Knowledge Graph: Explorar 5 pilares —Retail Strategy, Commerce Platforms, AI & Digital Retail, Digital Operations, Retail Media & Marketing— con análisis y frameworks sobre el futuro del comercio digital en América Latina.",
 };
 
 export default function TopicsPage() {
@@ -24,11 +24,10 @@ export default function TopicsPage() {
     {} as Record<string, number>
   );
 
-  const topicEmojis: Record<string, string> = {
-    "retail-media": "🛍️",
-    "digital-commerce": "💻",
-    "ai": "🤖",
-    "digital-transformation": "⚡",
+  // Map emojis from topic configuration
+  const getEmojiForTopic = (slug: string): string => {
+    const topic = allTopics.find((t) => t.slug === slug);
+    return topic?.emoji || "📌";
   };
 
   return (
@@ -45,7 +44,7 @@ export default function TopicsPage() {
           </h1>
 
           <p className="mt-6 text-base md:text-lg leading-7 md:leading-8 text-muted max-w-3xl">
-            Los contenidos publicados se organizan alrededor de ejes que conectan tecnología, negocio y experiencia de cliente. Cada tema agrupa artículos, análisis y reflexiones sobre su evolución en América Latina.
+            El Digital Retail Knowledge Graph organiza contenido en 5 pilares estratégicos interconectados por 3 capas transversales: Data & Analytics, Customer Experience y Business Economics. Cada tema agrupa artículos, análisis y frameworks sobre su evolución en América Latina.
           </p>
         </div>
       </section>
@@ -56,7 +55,7 @@ export default function TopicsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {allTopics.map((topic) => {
               const postCount = postCountByTopic[topic.slug] || 0;
-              const emoji = topicEmojis[topic.slug] || "📌";
+              const emoji = getEmojiForTopic(topic.slug);
               return (
                 <Link
                   key={topic.slug}
@@ -96,11 +95,26 @@ export default function TopicsPage() {
       <section className="border-b border-gray-200">
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
           <h2 className="text-3xl md:text-4xl font-bold font-serif text-ink mb-4">
-            Estructura temática interconectada
+            Un sistema interconectado
           </h2>
-          <p className="text-base md:text-lg leading-8 text-muted max-w-3xl">
-            Estos temas forman un sistema interconectado donde la transformación digital, la inteligencia artificial y los nuevos modelos de negocio en retail media se entrelazan. Cada tema es un punto de entrada para explorar cómo estas áreas evolucionan y se impactan mutuamente en el contexto de América Latina.
+          <p className="text-base md:text-lg leading-8 text-muted max-w-3xl mb-6">
+            Estos 5 pilares forman un Knowledge Graph donde strategy, platforms, AI, operations y media se entrelazan. Cada tema es un punto de entrada para explorar cómo estas áreas evolucionan y se impactan mutuamente a través de 3 capas transversales que atraviesan todo el sistema.
           </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <div className="p-4 rounded-lg border border-gray-300 bg-white/50">
+              <p className="text-sm font-semibold text-forest">Data & Analytics</p>
+              <p className="text-xs text-muted mt-2">El sistema nervioso: backbone que conecta todas las decisiones</p>
+            </div>
+            <div className="p-4 rounded-lg border border-gray-300 bg-white/50">
+              <p className="text-sm font-semibold text-forest">Customer Experience</p>
+              <p className="text-xs text-muted mt-2">La ventaja competitiva visible: integra strategy, personalization, engagement</p>
+            </div>
+            <div className="p-4 rounded-lg border border-gray-300 bg-white/50">
+              <p className="text-sm font-semibold text-forest">Business Economics</p>
+              <p className="text-xs text-muted mt-2">La métrica que importa: conecta strategy, platforms, AI, ops y media con revenue</p>
+            </div>
+          </div>
         </div>
       </section>
 
