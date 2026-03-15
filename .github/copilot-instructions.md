@@ -95,3 +95,7 @@ comes from.
 Feel free to ask for clarifications or point out missing knowledge.  If you
 decide to implement features such as rendering MDX in the dynamic slug page or
 adding new topics, update this file with examples of how you solved them.
+
+## Contexto personal
+Ver .claude/context/nicolas-profile.md para bio completa,
+experiencia, docencia, fotos disponibles y tono de comunicación.
