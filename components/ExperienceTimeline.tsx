@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { profileData } from "@/lib/data/profile";
 
 interface TimelineEvent {
@@ -96,8 +97,13 @@ const buildTimelineEvents = (): TimelineEvent[] => {
 };
 
 const events = buildTimelineEvents();
+const INITIAL_VISIBLE = 4; // Mostrar solo los primeros 4 eventos por defecto
 
 export default function ExperienceTimeline() {
+  const [expanded, setExpanded] = useState(false);
+  const visibleEvents = expanded ? events : events.slice(0, INITIAL_VISIBLE);
+  const hasMore = events.length > INITIAL_VISIBLE;
+
   return (
     <section className="bg-white border-b border-gray-200">
       <div className="mx-auto max-w-6xl px-6 py-20">
@@ -113,7 +119,7 @@ export default function ExperienceTimeline() {
 
             {/* Timeline events */}
             <div className="space-y-12">
-              {events.map((event, idx) => (
+              {visibleEvents.map((event, idx) => (
                 <div key={event.year} className={`flex ${idx % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}>
                   {/* Left/Right content */}
                   <div className={`w-1/2 ${idx % 2 === 0 ? "pr-8 text-right" : "pl-8 text-left"}`}>
@@ -157,7 +163,7 @@ export default function ExperienceTimeline() {
 
             {/* Timeline events */}
             <div className="space-y-6">
-              {events.map((event) => (
+              {visibleEvents.map((event) => (
                 <div key={event.year} className="relative">
                   {/* Dot */}
                   <div
@@ -188,6 +194,18 @@ export default function ExperienceTimeline() {
             </div>
           </div>
         </div>
+
+        {/* Expand/Collapse Button */}
+        {hasMore && (
+          <div className="mt-12 flex justify-center">
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="rounded-full border-2 border-forest px-6 py-2.5 text-sm font-semibold text-forest hover:bg-forest hover:text-cream transition-all"
+            >
+              {expanded ? "Ocultar trayectoria completa" : `Ver trayectoria completa (+${events.length - INITIAL_VISIBLE} hitos)`}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
