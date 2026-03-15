@@ -9,20 +9,20 @@ const navigation = [
 
 const focusAreas = [
   {
-    name: "Transformación Digital",
-    href: "/topics/digital-transformation",
+    name: "Retail Strategy",
+    href: "/topics/retail-strategy",
   },
   {
-    name: "Retail Media",
-    href: "/topics/retail-media",
+    name: "AI & Digital Retail",
+    href: "/topics/ai-retail",
   },
   {
-    name: "Inteligencia Artificial",
-    href: "/topics/ai",
+    name: "Digital Operations",
+    href: "/topics/digital-operations",
   },
   {
-    name: "Estrategia Ecommerce",
-    href: "/topics/digital-commerce",
+    name: "Retail Media & Marketing",
+    href: "/topics/retail-media-marketing",
   },
 ];
 
@@ -126,8 +126,8 @@ export default function Footer() {
           </p>
 
           <p>
-            nicolas.com.ar · Buenos Aires, Argentina · Digital Commerce ·
-            Retail Media · Inteligencia Artificial
+            nicolas.com.ar · Buenos Aires, Argentina · Retail Strategy ·
+            AI & Digital Retail · Digital Operations
           </p>
 
         </div>
