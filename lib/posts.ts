@@ -10,6 +10,8 @@ export type PostMeta = {
   description: string;
   date: string;
   topic: string;
+  subnodo?: string;
+  transversals?: string[];
   tags: string[];
   coverImage: string;
   featured: boolean;
@@ -34,6 +36,8 @@ function parsePostFile(fileName: string): Post {
       description: data.description ?? "",
       date: data.date ?? "",
       topic: data.topic ?? "general",
+      subnodo: data.subnodo,
+      transversals: Array.isArray(data.transversals) ? data.transversals : [],
       tags: Array.isArray(data.tags) ? data.tags : [],
       coverImage: data.coverImage ?? "",
       featured: Boolean(data.featured),
