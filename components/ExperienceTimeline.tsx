@@ -1,5 +1,7 @@
 "use client";
 
+import { profileData } from "@/lib/data/profile";
+
 interface TimelineEvent {
   year: string;
   title: string;
@@ -8,85 +10,92 @@ interface TimelineEvent {
   highlight?: boolean;
 }
 
-const events: TimelineEvent[] = [
-  {
+// Convert leadership experience to timeline events
+const buildTimelineEvents = (): TimelineEvent[] => {
+  const events: TimelineEvent[] = [];
+  
+  // Add MIT (current)
+  events.push({
     year: "2025–2026",
     title: "MIT Chief Digital Officer Program",
     description: "Formación avanzada en transformación digital y liderazgo",
     role: "Hito de estudio",
     highlight: false,
-  },
-  {
-    year: "2021–2025",
-    title: "Cencosud S.A.",
-    description: "Escaló al Top 5 Retail Media Latam",
-    role: "Gerente Digital Commerce (+43% EBITDA)",
-    highlight: true,
-  },
-  {
-    year: "2020–2021",
-    title: "VTEX",
-    description: "Director Customer Experience",
-    role: "4 países: Argentina, Paraguay, Uruguay, Bolivia",
-    highlight: false,
-  },
-  {
-    year: "2016–2021",
-    title: "andabi",
-    description: "Analytics & Digital Business Growth",
-    role: "CEO & Founder",
-    highlight: false,
-  },
-  {
-    year: "2016",
-    title: "MBA UCA",
-    description: "Universidad Católica Argentina",
-    role: "Educación formal",
-    highlight: false,
-  },
-  {
-    year: "2012–2015",
-    title: "axeso5 (CMO)",
-    description: "Chief Marketing Officer América Latina & Brasil",
-    role: "Estrategia, lanzamientos, medios (BTL/PR), $2M en campañas 2013",
-    highlight: false,
-  },
-  {
-    year: "2012",
-    title: "OLX (Analytics)",
-    description: "Google Analytics Consultant",
-    role: "96 sitios en 85 países, 4 continentes",
-    highlight: false,
-  },
-  {
-    year: "2010–2012",
-    title: "Intellignos",
-    description: "Partner & Web Analytics Project Leader",
-    role: "Clientes: Mercadolibre, Santander, OSDE, Fox, Intramed",
-    highlight: false,
-  },
-  {
-    year: "2007–2010",
-    title: "SolucionesIdea",
-    description: "Director de Medios Digitales",
-    role: "Google Adwords, posicionamiento web, analytics",
-    highlight: false,
-  },
-  {
-    year: "2005–2009",
-    title: "Consultor de Medios Digitales",
-    description: "Google Adwords & Marketing Digital",
-    role: "Campañas para empresas Latinoamérica",
-    highlight: false,
-  },
-  {
-    year: "2000–2012",
-    title: "Docencia & Consultoría",
-    description: "Google Analytics & Marketing Digital",
-    role: "UBA, UCEMA, ITBA, Universidad de San Andrés, Universidad de Palermo + Speaker",
-    highlight: false,
-  },
-];
+  });
+  
+  // Add leadership experience from profileData
+  profileData.leadershipExperience.forEach((exp) => {
+    if (exp.years && exp.company) {
+      events.push({
+        year: exp.years,
+        title: exp.company,
+        description: exp.company === "Cencosud S.A." 
+          ? "Escaló al Top 5 Retail Media Latam" 
+          : exp.description || "",
+        role: exp.position ? `${exp.position}${exp.financial?.ebitda ? ` (${exp.financial.ebitda} EBITDA)` : ""}` : undefined,
+        highlight: exp.featured || false,
+      });
+    }
+  });
+  
+  // Add historical data
+  const historicalEvents: TimelineEvent[] = [
+    {
+      year: "2016",
+      title: "MBA UCA",
+      description: "Universidad Católica Argentina",
+      role: "Educación formal",
+      highlight: false,
+    },
+    {
+      year: "2012–2015",
+      title: "axeso5 (CMO)",
+      description: "Chief Marketing Officer América Latina & Brasil",
+      role: "Estrategia, lanzamientos, medios (BTL/PR), $2M en campañas 2013",
+      highlight: false,
+    },
+    {
+      year: "2012",
+      title: "OLX (Analytics)",
+      description: "Google Analytics Consultant",
+      role: "96 sitios en 85 países, 4 continentes",
+      highlight: false,
+    },
+    {
+      year: "2010–2012",
+      title: "Intellignos",
+      description: "Partner & Web Analytics Project Leader",
+      role: "Clientes: Mercadolibre, Santander, OSDE, Fox, Intramed",
+      highlight: false,
+    },
+    {
+      year: "2007–2010",
+      title: "SolucionesIdea",
+      description: "Director de Medios Digitales",
+      role: "Google Adwords, posicionamiento web, analytics",
+      highlight: false,
+    },
+    {
+      year: "2005–2009",
+      title: "Consultor de Medios Digitales",
+      description: "Google Adwords & Marketing Digital",
+      role: "Campañas para empresas Latinoamérica",
+      highlight: false,
+    },
+    {
+      year: "2000–2012",
+      title: "Docencia & Consultoría",
+      description: "Google Analytics & Marketing Digital",
+      role: "UBA, UCEMA, ITBA, Universidad de San Andrés, Universidad de Palermo + Speaker",
+      highlight: false,
+    },
+  ];
+  
+  events.push(...historicalEvents);
+  return events;
+};
+
+const events = buildTimelineEvents();
 
 export default function ExperienceTimeline() {
   return (

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { profileData } from "@/lib/data/profile";
+import LeadershipDetail from "@/components/LeadershipDetail";
 
 export const metadata: Metadata = {
   title: "Sobre Prof. Nicolás Valenzuela",
@@ -195,6 +196,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Leadership Detail Section */}
+      <LeadershipDetail />
 
       {/* CTA Section */}
       <section style={{ backgroundColor: "#1A3A2A" }}>

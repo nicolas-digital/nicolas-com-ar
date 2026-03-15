@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { profileData } from "@/lib/data/profile";
 
 interface Credential {
   id: string;
@@ -11,43 +12,43 @@ interface Credential {
   color: string;
 }
 
-const credentials: Credential[] = [
-  {
-    id: "mit",
-    title: "MIT Chief Digital Officer",
-    subtitle: "2026",
-    icon: "🎓",
-    description: "MIT Professional Education Program — Transformación digital avanzada",
-    color: "from-blue-50 to-blue-100",
-  },
-  {
-    id: "mba",
-    title: "MBA",
-    subtitle: "2016",
-    icon: "📚",
-    description: "Universidad Católica Argentina — Negocios y Estrategia",
-    color: "from-amber-50 to-amber-100",
-  },
-  {
-    id: "cace",
-    title: "CACE Board",
-    subtitle: "8 años",
-    icon: "🏆",
-    description: "Board of Directors — Liderazgo en retail y ecommerce Latinoamericano",
-    color: "from-emerald-50 to-emerald-100",
-  },
-  {
-    id: "andabi",
-    title: "Fundador",
-    subtitle: "andabi",
-    icon: "🚀",
-    description: "Analytics & Digital Business Growth — Consultora de transformación (2016-2021)",
-    color: "from-purple-50 to-purple-100",
-  },
-];
+// Map differentiators to credential UI
+const getCredentialIcon = (category: string): string => {
+  const iconMap: Record<string, string> = {
+    Educational: "🎓",
+    Leadership: "👥",
+    Achievement: "🏆",
+    Financial: "📈",
+    Revenue: "💰",
+    Commerce: "🛍️",
+  };
+  return iconMap[category] || "⭐";
+};
+
+const getCredentialColor = (priority: number): string => {
+  const colorMap: Record<number, string> = {
+    1: "from-blue-50 to-blue-100",
+    2: "from-emerald-50 to-emerald-100",
+    3: "from-amber-50 to-amber-100",
+    4: "from-rose-50 to-rose-100",
+    5: "from-purple-50 to-purple-100",
+    6: "from-indigo-50 to-indigo-100",
+  };
+  return colorMap[priority] || "from-gray-50 to-gray-100";
+};
 
 export default function CredentialsBand() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  
+  // Convert differentiators to credentials format
+  const credentials: Credential[] = profileData.differentiators.map((diff, idx) => ({
+    id: `diff-${idx}`,
+    title: diff.badge,
+    subtitle: diff.category,
+    icon: getCredentialIcon(diff.category),
+    description: `${diff.category} — ${diff.badge}. Máxima prioridad en el perfil profesional.`,
+    color: getCredentialColor(diff.priority),
+  }));
 
   return (
     <section className="border-b border-gray-200 py-8 md:py-12" style={{ backgroundColor: "#EEE8DE" }}>
