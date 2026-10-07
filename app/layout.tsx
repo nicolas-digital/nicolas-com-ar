@@ -69,7 +69,7 @@ export default function RootLayout({
     alternateName: "Prof. Nicolás Valenzuela",
     jobTitle: "Digital Transformation Advisor | Board Member",
     description:
-      "Advisor en transformación digital, retail media e IA aplicada con +25 años de experiencia en Latinoamérica. MIT Chief Digital Officer Program 2026. Experto en digital commerce, retail strategy y operaciones digitales. +1.000 profesionales liderados. Top 5 Retail Media LATAM.",
+      "Advisor en transformación digital, retail media e IA aplicada con +25 años de experiencia en Latinoamérica. Programa en Alta Dirección: Chief Digital Officer de MIT Professional Education, completado el 2 de octubre de 2026. Experto en digital commerce, retail strategy y operaciones digitales. +1.000 profesionales liderados. Top 5 Retail Media LATAM.",
     url: "https://www.nicolas.com.ar",
     image: "https://www.nicolas.com.ar/images/nicolas-valenzuela.jpg",
     email: "nicolas@nicolas.com.ar",

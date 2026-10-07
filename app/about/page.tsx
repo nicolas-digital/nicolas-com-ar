@@ -107,6 +107,9 @@ export default function AboutPage() {
               <p className="mt-4 leading-7 text-muted">
                 Docente desde 2000 en universidades como UBA, UCEMA, ITBA, Universidad de Buenos Aires, Universidad de San Andrés y Universidad de Palermo. Speaker en jornadas sobre innovación digital, marketing y emprendedorismo.
               </p>
+              <p className="mt-4 leading-7 text-muted">
+                Completé el Programa en Alta Dirección: Chief Digital Officer de MIT Professional Education el 2 de octubre de 2026, con formación en liderazgo, IA agéntica, IA generativa, plataformas digitales y Data Leadership.
+              </p>
             </div>
 
             {/* Stats */}

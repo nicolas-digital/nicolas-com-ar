@@ -15,12 +15,12 @@ interface TimelineEvent {
 const buildTimelineEvents = (): TimelineEvent[] => {
   const events: TimelineEvent[] = [];
   
-  // Add MIT (current)
+  // Add completed MIT executive program
   events.push({
     year: "2025–2026",
-    title: "MIT Chief Digital Officer Program",
-    description: "Formación avanzada en transformación digital y liderazgo",
-    role: "Hito de estudio",
+    title: "Programa en Alta Dirección: Chief Digital Officer",
+    description: "MIT Professional Education · completado el 2 de octubre de 2026",
+    role: "Programa completado",
     highlight: false,
   });
 
