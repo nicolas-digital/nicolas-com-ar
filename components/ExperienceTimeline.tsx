@@ -14,7 +14,7 @@ interface TimelineEvent {
 // Convert leadership experience to timeline events
 const buildTimelineEvents = (): TimelineEvent[] => {
   const events: TimelineEvent[] = [];
-  
+
   // Add completed MIT executive program
   events.push({
     year: "2025–2026",
@@ -32,29 +32,29 @@ const buildTimelineEvents = (): TimelineEvent[] => {
     role: "Web Retail - Retail Day 2025 Buenos Aires",
     highlight: true,
   });
-  
+
   // Add leadership experience from profileData
   profileData.leadershipExperience.forEach((exp) => {
     if (exp.years && exp.company) {
       events.push({
         year: exp.years,
         title: exp.company,
-        description: exp.company === "Cencosud S.A." 
-          ? "Escaló al Top 5 Retail Media Latam" 
+        description: exp.company === "Cencosud S.A."
+          ? "Construcción y consolidación de Cencosud Media"
           : exp.description || "",
-        role: exp.position ? `${exp.position}${exp.financial?.ebitda ? ` (${exp.financial.ebitda} EBITDA)` : ""}` : undefined,
+        role: exp.position ? exp.position : undefined,
         highlight: exp.featured || false,
       });
     }
   });
-  
+
   // Add historical data
   const historicalEvents: TimelineEvent[] = [
     {
-      year: "2016",
-      title: "MBA UCA",
+      year: "Defensa prevista: 22/10/2026",
+      title: "MBA UCA — tesis presentada",
       description: "Universidad Católica Argentina",
-      role: "Educación formal",
+      role: "Pendiente de defensa",
       highlight: false,
     },
     {
@@ -100,7 +100,7 @@ const buildTimelineEvents = (): TimelineEvent[] => {
       highlight: false,
     },
   ];
-  
+
   events.push(...historicalEvents);
   return events;
 };

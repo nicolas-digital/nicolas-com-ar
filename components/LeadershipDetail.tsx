@@ -7,19 +7,20 @@ export default function LeadershipDetail() {
   // Get all featured experiences (Cencosud and andabi)
   const featuredExperiences = profileData.leadershipExperience.filter((exp) => exp.featured);
   
+  const [activeIndex, setActiveIndex] = useState(0);
+
   if (featuredExperiences.length === 0) {
     return null;
   }
 
-  const [activeIndex, setActiveIndex] = useState(0);
   const current = featuredExperiences[activeIndex];
 
   // Render KPIs based on experience type
   const renderKpis = () => {
     if (current.company === "Cencosud S.A.") {
-      return <CencosudKpis exp={current} />;
+      return <CencosudKpis />;
     } else if (current.company === "andabi") {
-      return <AndabiKpis exp={current} />;
+      return <AndabiKpis />;
     }
     return null;
   };
@@ -105,7 +106,7 @@ function OverviewCards({ exp }: { exp: (typeof profileData.leadershipExperience)
         {/* Team & Scope */}
         <div className="p-6 rounded-lg bg-gradient-to-br from-emerald-50 to-emerald-100/50 border border-emerald-200">
           <p className="text-xs font-semibold uppercase tracking-wider text-emerald-700">👥 Equipo</p>
-          <p className="text-3xl font-bold text-emerald-900 mt-3">{exp.teamSize}+</p>
+          <p className="text-3xl font-bold text-emerald-900 mt-3">Equipos</p>
           <p className="text-sm text-emerald-700 mt-2">{exp.teamDescription}</p>
           <div className="mt-4 flex flex-wrap gap-2">
             {exp.divisiones?.map((div: string) => (
@@ -118,9 +119,9 @@ function OverviewCards({ exp }: { exp: (typeof profileData.leadershipExperience)
 
         {/* Financial Impact */}
         <div className="p-6 rounded-lg bg-gradient-to-br from-rose-50 to-rose-100/50 border border-rose-200">
-          <p className="text-xs font-semibold uppercase tracking-wider text-rose-700">💰 Impacto Financiero</p>
+          <p className="text-xs font-semibold uppercase tracking-wider text-rose-700">💰 Gestión económica</p>
           <p className="text-3xl font-bold text-rose-900 mt-3">{exp.financial?.ebitda}</p>
-          <p className="text-sm text-rose-700 mt-2">EBITDA</p>
+          <p className="text-sm text-rose-700 mt-2">Ingresos y EBITDA</p>
           <p className="text-xs text-rose-600 mt-3 leading-relaxed">
             {exp.financial?.ebitdaOwnership}
           </p>
@@ -129,7 +130,7 @@ function OverviewCards({ exp }: { exp: (typeof profileData.leadershipExperience)
         {/* Key Achievements */}
         <div className="p-6 rounded-lg bg-gradient-to-br from-blue-50 to-blue-100/50 border border-blue-200">
           <p className="text-xs font-semibold uppercase tracking-wider text-blue-700">🎯 Logros Clave</p>
-          {exp.achievements?.slice(0, 2).map((ach: any, idx: number) => (
+          {exp.achievements?.slice(0, 2).map((ach, idx: number) => (
             <div key={idx} className="mt-3">
               <p className="text-sm font-semibold text-blue-900">{ach.title}</p>
               <p className="text-lg font-bold text-blue-700 mt-1">{ach.metric}</p>
@@ -171,7 +172,7 @@ function OverviewCards({ exp }: { exp: (typeof profileData.leadershipExperience)
 // CENCOSUD KPIs (10 cards with colors)
 // ============================================================================
 
-function CencosudKpis({ exp }: { exp: (typeof profileData.leadershipExperience)[0] }) {
+function CencosudKpis() {
   const kpiColors = [
     { bg: "from-amber-50 to-amber-100/30", border: "border-amber-200", text: "text-amber-700", emoji: "📈" },
     { bg: "from-amber-50 to-amber-100/30", border: "border-amber-200", text: "text-amber-700", emoji: "💹" },
@@ -186,22 +187,16 @@ function CencosudKpis({ exp }: { exp: (typeof profileData.leadershipExperience)[
   ];
 
   const kpis = [
-    { title: "+500% Retail Media", desc: "Crecimiento interanual. Nueva línea de negocio con alto margen." },
-    { title: "+200% Digital Commerce", desc: "Crecimiento del negocio central. Ventas netas impulsadas." },
-    { title: "+1pp Conversión (AI)", desc: "Mejora mediante IA. Traducido en millones en top line." },
-    { title: "+100% Fill Rate", desc: "Excelencia en logística. Objetivos anuales superados." },
-    { title: "+0.4pp Market Share", desc: "Ganancia de terreno a competencia en retail." },
-    { title: "+43% EBITDA", desc: "Ownership directo. 30% en OKRs. Orientación al resultado." },
-    { title: ">50% Composable Commerce", desc: "Arquitectura tecnológica migrada. Omnicanal." },
-    { title: "800K+ Pedidos Anuales", desc: "Gestión de capacidad y escalabilidad operativa." },
-    { title: "Cuartil Superior NPS/CSAT", desc: "Fidelización. Industria minorista. CLV focus." },
-    { title: "+90% Org Alignment", desc: "Roles alineados con objetivos. Talento & arquitectura." },
+    { title: "Retail Media", desc: "Construcción y consolidación de una unidad de negocio con estado de resultados propio." },
+    { title: "Digital Commerce", desc: "Gestión de prioridades comerciales y operativas para Jumbo, Easy, Disco, Blaisten y Vea." },
+    { title: "Gestión basada en P&L", desc: "Objetivos de ingresos y EBITDA, planificación de recursos y seguimiento de resultados." },
+    { title: "Liderazgo multidisciplinario", desc: "Articulación de equipos de negocio, operaciones, tecnología y datos." },
   ];
 
   return (
     <div className="mb-16">
       <h3 className="text-2xl md:text-3xl font-bold font-serif text-ink mb-12">
-        10 KPIs Clave
+        Responsabilidades de gestión
       </h3>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -216,9 +211,9 @@ function CencosudKpis({ exp }: { exp: (typeof profileData.leadershipExperience)[
                 <span className="text-4xl">{color.emoji}</span>
                 <div className="flex-1">
                   <p className={`text-xs font-semibold uppercase tracking-wider ${color.text}`}>
-                    KPI #{idx + 1}
+                    Área {idx + 1}
                   </p>
-                  <h4 className="text-lg font-bold mt-2" style={{ color: color.text.split("-")[2] }}>
+                  <h4 className={`text-lg font-bold mt-2 ${color.text}`}>
                     {kpi.title}
                   </h4>
                   <p className={`text-sm ${color.text} mt-2`}>{kpi.desc}</p>
@@ -236,7 +231,7 @@ function CencosudKpis({ exp }: { exp: (typeof profileData.leadershipExperience)[
 // ANDABI KPIs (10 cards - Consultancy focused)
 // ============================================================================
 
-function AndabiKpis({ exp }: { exp: (typeof profileData.leadershipExperience)[0] }) {
+function AndabiKpis() {
   const kpiColors = [
     { bg: "from-amber-50 to-amber-100/30", border: "border-amber-200", text: "text-amber-700", emoji: "🏆" },
     { bg: "from-emerald-50 to-emerald-100/30", border: "border-emerald-200", text: "text-emerald-700", emoji: "📈" },

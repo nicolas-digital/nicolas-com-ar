@@ -69,13 +69,12 @@ export default function RootLayout({
     alternateName: "Prof. Nicolás Valenzuela",
     jobTitle: "Digital Transformation Advisor | Board Member",
     description:
-      "Advisor en transformación digital, retail media e IA aplicada con +25 años de experiencia en Latinoamérica. Programa en Alta Dirección: Chief Digital Officer de MIT Professional Education, completado el 2 de octubre de 2026. Experto en digital commerce, retail strategy y operaciones digitales. +1.000 profesionales liderados. Top 5 Retail Media LATAM.",
+      "Advisor en transformación digital, retail media e IA aplicada con +25 años de experiencia en Latinoamérica. Programa en Alta Dirección: Chief Digital Officer de MIT Professional Education, completado el 2 de octubre de 2026. Experto en digital commerce, retail strategy y operaciones digitales. Gestión de Digital Commerce y Retail Media basada en P&L.",
     url: "https://www.nicolas.com.ar",
     image: "https://www.nicolas.com.ar/images/nicolas-valenzuela.jpg",
     email: "nicolas@nicolas.com.ar",
-    telephone: "+54",
     sameAs: [
-      "https://www.linkedin.com/in/nicolasvalenzuela",
+      "https://www.linkedin.com/in/nvalenzuela/",
       "https://twitter.com/nicolasval",
     ],
     address: {
@@ -118,16 +117,6 @@ export default function RootLayout({
         },
         year: 2026,
       },
-      {
-        "@type": "EducationalOccupationalCredential",
-        credentialCategory: "MBA",
-        name: "Master in Business Administration",
-        issuedBy: {
-          "@type": "EducationalOrganization",
-          name: "Universidad Católica Argentina",
-        },
-        year: 2016,
-      },
     ],
     alumniOf: [
       {
@@ -138,7 +127,7 @@ export default function RootLayout({
       {
         "@type": "CollegeOrUniversity",
         name: "Universidad Católica Argentina",
-        description: "MBA - 2014-2016",
+        description: "MBA: tesis presentada; defensa prevista para el 22 de octubre de 2026",
       },
       {
         "@type": "CollegeOrUniversity",
@@ -157,9 +146,9 @@ export default function RootLayout({
         "@type": "EmployeeRole",
         name: "Gerente Digital Commerce",
         employer: "Cencosud S.A.",
-        startDate: "2021-01-01",
-        endDate: "2025-12-31",
-        description: "Liderazgo de transformación digital en retail con +1.000 profesionales. Resultados: Retail Media a Top 5 LATAM (+500% crecimiento anual), Digital Commerce +200% anual, +43% EBITDA, +1 punto porcentual conversión vía IA.",
+        startDate: "2021-10",
+        endDate: "2025-04",
+        description: "Liderazgo de Digital Commerce en Cencosud Argentina, con gestión basada en P&L, objetivos de ingresos y EBITDA y planificación de recursos. Participación en la construcción y consolidación de Cencosud Media como unidad de Retail Media con estado de resultados propio.",
       },
       {
         "@type": "EmployeeRole",
@@ -193,17 +182,6 @@ export default function RootLayout({
         event: "Retail Day 2025",
         eventDate: "2025-05",
         eventLocation: "Buenos Aires, Argentina",
-      },
-      {
-        "@type": "Thing",
-        name: "Top 5 Retail Media Networks LATAM",
-        source: "eMarketer",
-        description: "Escaló Cencosud Media a posición top 5 en Latinoamérica",
-      },
-      {
-        "@type": "Thing",
-        name: "+1.000 Profesionales Liderados",
-        description: "Liderazgo directo de equipos en múltiples divisiones de Cencosud",
       },
     ],
   };

@@ -118,7 +118,7 @@ export default function HomePage() {
       {/* Metrics */}
       <section className="border-b border-gray-200 bg-cream">
         <div className="mx-auto max-w-6xl px-6 py-16">
-          <div className="flex flex-row items-center justify-start gap-8 md:gap-12">
+          <div className="flex flex-wrap items-center justify-start gap-8 md:gap-12">
             {profileData.homeMetrics.map((metric, idx) => (
               <div key={idx} className="flex items-center gap-8 md:gap-12">
                 <div>

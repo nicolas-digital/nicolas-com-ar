@@ -41,9 +41,9 @@ export const profileData = {
   
   // Home Page - Metrics & Counters (UPDATED - OPCIÓN B+)
   homeMetrics: [
-    { end: 25, duration: 2500, label: "años en digital" },
-    { end: 500, duration: 3000, label: "% crecimiento Retail Media", plus: "+" }, // KPI #1
-    { end: "Top 5", duration: 1500, label: "Retail Media LATAM" },
+    { end: 25, duration: 2500, label: "años en digital", plus: "+" },
+    { end: "P&L", duration: 0, label: "gestión de negocios digitales" }, // KPI #1
+    { end: "Retail Media", duration: 0, label: "construcción de negocio" },
   ],
   
   // Home Page - Tags
@@ -59,9 +59,9 @@ export const profileData = {
   // About Page - Stats (UPDATED - OPCIÓN B+ con KPIs financieros visibles)
   aboutStats: [
     { value: "25+", label: "Años en digital" },
-    { value: "1.000+", label: "Profesionales liderados" },
-    { value: "+43%", label: "EBITDA (Cencosud)" }, // KPI #6 - Financial ownership
-    { value: "Top 5", label: "Retail Media LATAM" },
+    { value: "Equipos", label: "Liderazgo multidisciplinario" },
+    { value: "P&L", label: "Gestión económica" }, // KPI #6 - Financial ownership
+    { value: "Retail Media", label: "Unidad de negocio" },
   ],
   
   // Expertise Areas (shared across pages)
@@ -118,96 +118,21 @@ export const profileData = {
     {
       company: "Cencosud S.A.",
       position: "Gerente Digital Commerce",
-      years: "2021–2025",
-      teamSize: 1000,
-      teamDescription: "profesionales en múltiples divisiones",
+      years: "Octubre 2021–abril 2025",
+      teamSize: undefined,
+      teamDescription: "negocio, operaciones, tecnología y datos",
       divisiones: ["Jumbo", "Easy", "Disco", "Blaisten", "Vea"],
       scope: "Argentina",
       
-      // Key Achievements (Top line)
       achievements: [
-        {
-          title: "Top 5 Retail Media Networks LATAM",
-          source: "eMarketer",
-          metric: "Escaló Cencosud Media a posición top 5",
-          kpiNumber: 1,
-        },
-        {
-          title: "Crecimiento Retail Media",
-          metric: "+500% interanual",
-          description: "Nueva línea de negocio con alto margen",
-          kpiNumber: 1,
-        },
-        {
-          title: "Crecimiento Digital Commerce Core",
-          metric: "+200% interanual",
-          description: "Ventas netas del negocio central",
-          kpiNumber: 2,
-        },
+        { title: "Cencosud Media", metric: "Unidad de Retail Media", description: "Estado de resultados propio, presupuesto y seguimiento mensual" },
+        { title: "Digital Commerce", metric: "Gestión multimarcas", description: "Prioridades comerciales y operativas compartidas" },
       ],
-      
-      // Financial Impact
       financial: {
-        ebitda: "+43%",
-        ebitdaOwnership: "Propietario del Objetivo EBITDA Directo con 30% en OKRs",
-        description: "Orientación al resultado final (bottom-line) y gestión de costos",
-        kpiNumber: 6,
+        ebitda: "P&L",
+        ebitdaOwnership: "Objetivos de ingresos y EBITDA, planificación de recursos y seguimiento de resultados",
+        description: "Gestión económica del negocio digital",
       },
-      
-      // Operational KPIs
-      operationalKpis: [
-        {
-          title: "Tasa de Conversión + AI",
-          metric: "+1 punto porcentual",
-          description: "Mejora mediante implementación de Inteligencia Artificial",
-          impact: "Traducido en millones en top line",
-          kpiNumber: 3,
-        },
-        {
-          title: "Tasa de Entrega Puntual (Fill Rate)",
-          metric: "+100% de objetivos anuales superados",
-          description: "Excelencia en logística y cadena de suministro",
-          kpiNumber: 4,
-        },
-        {
-          title: "Volumen de Pedidos Gestionados",
-          metric: "800.000+ pedidos anuales",
-          description: "Gestión de capacidad y escalabilidad",
-          kpiNumber: 8,
-        },
-        {
-          title: "Market Share",
-          metric: "+0.4 puntos porcentuales",
-          description: "Ganancia de terreno a la competencia",
-          kpiNumber: 5,
-        },
-      ],
-      
-      // Customer Experience
-      customerExperience: {
-        nps: "Cuartil Superior de la industria minorista",
-        csat: "Cuartil Superior de la industria minorista",
-        description: "Fidelización y valor de vida del cliente (CLV)",
-        kpiNumber: 9,
-      },
-      
-      // Technology & Innovation
-      technology: {
-        title: "Transformación Tecnológica — Comercio Unificado",
-        description: "Dirección de proyectos de migración a Composable Commerce",
-        metric: ">50% de la arquitectura tecnológica impactada",
-        impact: "Redefinición de arquitectura para experiencia unificada omnicanal",
-        kpiNumber: 7,
-      },
-      
-      // Team & Organization
-      organization: {
-        title: "Rediseño de Estructura Organizacional",
-        alignment: "+90% de alineación entre roles y objetivos estratégicos",
-        description: "Gestión del talento y arquitectura organizativa",
-        kpiNumber: 10,
-      },
-      
       // Partnerships
       partners: ["Google", "Meta", "Amazon", "Microsoft"],
       
@@ -215,8 +140,16 @@ export const profileData = {
     },
     {
       company: "VTEX",
+      position: "Director Customer Success",
+      years: "Marzo 2020–marzo 2021",
+      scope: "Argentina, Paraguay, Uruguay, Bolivia",
+      countries: 4,
+      featured: false,
+    },
+    {
+      company: "VTEX",
       position: "Director Customer Experience",
-      years: "2020–2021",
+      years: "Marzo–octubre 2021",
       scope: "Argentina, Paraguay, Uruguay, Bolivia",
       countries: 4,
       featured: false,
@@ -332,29 +265,28 @@ export const profileData = {
     },
     {
       category: "Leadership",
-      badge: "1.000+ team",
-      value: "1.000+",
+      badge: "Liderazgo multidisciplinario",
+      value: "Equipos",
       priority: 2,
     },
     {
       category: "Achievement",
-      badge: "Top 5 Retail Media LATAM",
-      source: "eMarketer",
+      badge: "Construcción de Retail Media",
       priority: 3,
     },
     {
       category: "Financial",
-      badge: "+43% EBITDA",
+      badge: "Gestión basada en P&L",
       priority: 4,
     },
     {
       category: "Revenue",
-      badge: "+500% Retail Media",
+      badge: "Retail Media",
       priority: 5,
     },
     {
       category: "Commerce",
-      badge: "+200% Digital Commerce",
+      badge: "Digital Commerce multimarcas",
       priority: 6,
     },
   ],

@@ -11,14 +11,14 @@ const testimonials: Testimonial[] = [
   {
     company: "Cencosud",
     logo: "🏬",
-    quote: "Escaló Cencosud Media al Top 5 Retail Media Networks con +43% EBITDA growth",
+    quote: "Gestión de Digital Commerce y Retail Media en Argentina, con objetivos de ingresos y EBITDA, presupuesto y seguimiento de resultados.",
     role: "Gerente Digital Commerce",
   },
   {
     company: "VTEX",
     logo: "💻",
-    quote: "Transformación digital de operaciones en 4 países",
-    role: "Director Customer Experience",
+    quote: "Dirección de Customer Success y posteriormente Customer Experience para Argentina, Paraguay, Uruguay y Bolivia.",
+    role: "Director Customer Success / Customer Experience",
   },
   {
     company: "andabi",
@@ -33,7 +33,7 @@ export default function Testimonials() {
     <section className="bg-cream border-b border-gray-200">
       <div className="mx-auto max-w-6xl px-6 py-20">
         <h2 className="text-3xl md:text-4xl font-bold font-serif text-ink mb-12">
-          Impacto probado
+          Trayectoria ejecutiva
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -50,10 +50,10 @@ export default function Testimonials() {
                 </div>
               </div>
 
-              <p className="text-sm leading-6 text-ink italic">"{test.quote}"</p>
+              <p className="text-sm leading-6 text-ink">{test.quote}</p>
 
               <div className="mt-6 pt-4 border-t border-gray-200">
-                <p className="text-xs font-semibold text-forest">Verificable en LinkedIn</p>
+                <a href="https://www.linkedin.com/in/nvalenzuela/" className="text-xs font-semibold text-forest underline">Ver trayectoria en LinkedIn</a>
               </div>
             </div>
           ))}

@@ -51,7 +51,7 @@ export default function CTASection() {
                 <span className="text-2xl">💻</span>
                 <div>
                   <p className="font-semibold text-sm">VTEX</p>
-                  <p className="text-xs text-cream/70">Director LATAM</p>
+                  <p className="text-xs text-cream/70">Director CX / Customer Success · 4 países</p>
                 </div>
               </div>
 
