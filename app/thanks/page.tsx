@@ -1,3 +1,7 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = { robots: { index: false, follow: true } };
+
 export default function ThanksPage() {
   return (
     <main className="mx-auto max-w-4xl px-6 py-20">

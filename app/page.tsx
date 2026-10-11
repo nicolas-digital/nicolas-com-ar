@@ -1,219 +1,46 @@
+import { pageMetadata, socialPages } from "@/lib/social";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
-import { profileData } from "@/lib/data/profile";
-import AnimatedCounter from "@/components/AnimatedCounter";
-import CredentialsBand from "@/components/CredentialsBand";
-import ExperienceTimeline from "@/components/ExperienceTimeline";
-import Testimonials from "@/components/Testimonials";
-import ExpertiseTags from "@/components/ExpertiseTags";
-import CTASection from "@/components/CTASection";
+import s from "./home.module.css";
 
-export const metadata: Metadata = {
-  title: "Digital Strategy, Ecommerce, Retail Media & AI",
-  description:
-    "Nicolás Valenzuela shares insights and strategic advisory on digital transformation, ecommerce, retail media and applied AI for retailers, brands and technology companies in Latin America.",
-};
+export const metadata: Metadata = pageMetadata(socialPages.home);
+
+const decisions = [
+  { title: "Crecer con rentabilidad", text: "Conectar la estrategia de commerce con margen, operación y experiencia del cliente. Definir qué priorizar y cómo evaluar el avance.", label: "COMMERCE & OPERACIÓN" },
+  { title: "Convertir datos en decisiones", text: "Evaluar oportunidades de retail media y uso de datos con una mirada de negocio: qué medir, para quién y con qué límites.", label: "RETAIL MEDIA & DATOS" },
+  { title: "Llevar la IA a la práctica", text: "Elegir problemas concretos, identificar los datos necesarios y diseñar una adopción con responsabilidades y supervisión humana.", label: "IA & TRANSFORMACIÓN" },
+];
 
 export default function HomePage() {
-  const allPosts = getAllPosts();
-  const recentPosts = allPosts.slice(0, 2);
-
+  const posts = getAllPosts().slice(0, 2);
   return (
-    <main className="bg-cream text-ink">
-      {/* Hero Section */}
-      <section className="border-b border-gray-200 bg-cream">
-        <div className="mx-auto max-w-6xl px-6 py-12 md:py-24">
-          <div className="grid grid-cols-[1fr_auto] gap-4 md:grid-cols-2 md:gap-16 items-start">
-            {/* Left: Text */}
-            <div>
-              {/* Eyebrow */}
-              <p className="text-xs font-semibold tracking-wider" style={{ color: "#8B7355" }}>
-                ● BUENOS AIRES · LATAM
-              </p>
-
-              {/* H1 */}
-              <h1 className="mt-4 md:mt-6 text-2xl md:text-5xl font-bold leading-tight font-serif">
-                Convierto visión estratégica en innovación con resultados reales
-              </h1>
-
-              {/* Subtitle */}
-              <p className="mt-4 md:mt-6 text-sm md:text-base leading-6 md:leading-8 text-muted">
-                Retail, ecommerce, retail media e IA aplicada — acompaño a CEOs y organizaciones en Latinoamérica a transformar sus negocios digitales con ejecución concreta, no solo estrategia en papel.
-              </p>
-
-              {/* Tags */}
-              <div className="mt-6 md:mt-8 flex flex-wrap gap-2">
-                {profileData.heroTags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border px-2.5 md:px-3 py-1 md:py-1.5 text-xs font-medium"
-                    style={{
-                      borderColor: "#D4B896",
-                      color: "#8B6040",
-                      backgroundColor: "white",
-                    }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              {/* CTAs */}
-              <div className="mt-6 md:mt-10 flex flex-wrap gap-2 md:gap-3">
-                <Link
-                  href="/consulting"
-                  className="rounded-full bg-ink px-5 md:px-6 py-2 md:py-2.5 text-xs md:text-sm font-semibold text-cream hover:bg-ink/90 transition-colors"
-                >
-                  Hablemos →
-                </Link>
-
-                <Link
-                  href="/insights"
-                  className="rounded-full border border-ink px-5 md:px-6 py-2 md:py-2.5 text-xs md:text-sm font-semibold text-ink hover:bg-cream/50 transition-colors"
-                >
-                  Ver insights
-                </Link>
-              </div>
-            </div>
-
-            {/* Right: Photo */}
-            <div className="flex justify-start md:justify-end relative">
-              <div className="relative group">
-                <Image
-                  src="/images/nicolas-valenzuela.png"
-                  alt="Nicolás Valenzuela — Digital Transformation Advisor"
-                  width={280}
-                  height={280}
-                  priority
-                  sizes="(max-width: 768px) 96px, 280px"
-                  className="rounded-full md:rounded-2xl w-24 h-24 md:w-80 md:h-80 object-cover object-top shadow-lg flex-shrink-0"
-                />
-                <a
-                  href="https://www.youtube.com/watch?v=PBdczRfTpPY&list=PLEecx-sXSaZ2_k6yTq4BumjObnOq6kpKC"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute inset-0 flex items-center justify-center rounded-full md:rounded-2xl bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
-                >
-                  <div className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-white/90 rounded-full group-hover:bg-white transition-colors">
-                    <svg
-                      className="w-6 h-6 md:w-8 md:h-8 text-forest ml-1"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                    </svg>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
+    <div className={s.home}>
+      <section className={`${s.wrap} ${s.hero}`} aria-labelledby="home-title">
+        <div className={s.heroCopy}>
+          <p className={s.eyebrow}>NICOLÁS VALENZUELA · BUENOS AIRES / LATAM</p>
+          <h1 id="home-title">Estrategia, datos e inteligencia artificial para <em>dirigir el negocio digital.</em></h1>
+          <p className={s.intro}>Acompaño a líderes de retail y comercio digital a definir prioridades y conectar tecnología, equipos y operación.</p>
+          <div className={s.actions}><Link className={s.button} href="/consulting">Conversemos sobre tu negocio <span aria-hidden="true">↗</span></Link><Link className={s.textLink} href="#experiencia">Conocé mi recorrido <span aria-hidden="true">↓</span></Link></div>
         </div>
+        <figure className={s.portrait}>
+          <Image src="/images/mit/nicolas-campus.webp" alt="Nicolás Valenzuela con la estola de MIT Professional Education, frente a la cúpula del campus" width={1398} height={1400} priority sizes="(max-width: 760px) calc(100vw - 40px), 460px" />
+          <figcaption><span>Aprender para transformar.</span><span>MIT · CAMBRIDGE, 2026</span></figcaption>
+        </figure>
       </section>
-
-      {/* Credentials Band */}
-      <CredentialsBand />
-
-      {/* Metrics */}
-      <section className="border-b border-gray-200 bg-cream">
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <div className="flex flex-wrap items-center justify-start gap-8 md:gap-12">
-            {profileData.homeMetrics.map((metric, idx) => (
-              <div key={idx} className="flex items-center gap-8 md:gap-12">
-                <div>
-                  <div className="text-3xl md:text-4xl font-bold text-ink">
-                    {metric.plus && <span>{metric.plus}</span>}
-                    {typeof metric.end === "string" ? metric.end : (
-                      <span>{metric.end}</span>
-                    )}
-                  </div>
-                  <p className="text-xs md:text-sm text-muted mt-1">{metric.label}</p>
-                </div>
-                {idx < profileData.homeMetrics.length - 1 && (
-                  <div className="border-l border-gray-300 h-12" />
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Expertise Tags */}
-          <ExpertiseTags />
-        </div>
+      <div className={s.disciplines}><div className={s.wrap}><span>ESTRATEGIA DE NEGOCIO</span><span>RETAIL & COMMERCE</span><span>DATOS & IA</span><span>LIDERAZGO & DOCENCIA</span></div></div>
+      <section id="experiencia" className={`${s.wrap} ${s.experience}`} aria-labelledby="experience-title">
+        <div><p className={s.eyebrow}>01 / EXPERIENCIA Y FORMACIÓN</p><h2 id="experience-title">La mirada de negocio.<br /><em>La curiosidad de seguir aprendiendo.</em></h2><p className={s.body}>Mi recorrido conecta gestión de negocios digitales, consultoría y docencia. La formación en MIT Professional Education suma trabajo aplicado en plataformas, datos e inteligencia artificial a esa experiencia.</p><Link className={s.textLink} href="/about">Explorar mi trayectoria <span aria-hidden="true">↗</span></Link></div>
+        <div className={s.credential}><p className={s.eyebrow}>MIT PROFESSIONAL EDUCATION</p><h3>Programa en Alta Dirección:<br />Chief Digital Officer</h3><p>Completado el 2 de octubre de 2026.<br />525 horas de formación · 2025–2026.</p><details><summary>Ver el certificado <span aria-hidden="true">＋</span></summary><Image src="/images/mit/certificado-cdo.webp" alt="Certificado de Nicolás Valenzuela del Programa en Alta Dirección: Chief Digital Officer, MIT Professional Education, del 30 de junio de 2025 al 2 de octubre de 2026, 525 horas" width={1800} height={832} sizes="(max-width: 760px) 90vw, 460px" /><a className={s.textLink} href="/images/mit/certificado-cdo.webp">Abrir imagen completa ↗</a></details></div>
       </section>
-
-      {/* Profile Section - Experience Timeline */}
-      <ExperienceTimeline />
-
-      {/* Testimonials */}
-      <Testimonials />
-
-      {/* Areas Section */}
-      <section className="bg-cream border-b border-gray-200">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <h2 className="text-3xl md:text-4xl font-bold font-serif text-ink mb-12">
-            Áreas de especialización
-          </h2>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            {profileData.expertise.map((area) => (
-              <div
-                key={area.title}
-                className="rounded-lg border border-gray-300 bg-white p-6 hover:border-forest/30 hover:shadow-md transition-all"
-              >
-                <h3 className="text-lg font-semibold font-serif text-ink">
-                  {area.title}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-muted">
-                  {area.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <CTASection />
-
-      {/* Recent Insights */}
-      <section className="bg-cream border-t border-gray-200">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <h2 className="text-3xl md:text-4xl font-bold font-serif text-ink mb-12">
-            Últimos insights
-          </h2>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {recentPosts.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/insights/${post.slug}`}
-                className="group rounded-lg border border-gray-300 bg-white p-6 hover:border-forest/30 hover:shadow-md transition-all"
-              >
-                <p className="text-xs font-semibold uppercase tracking-wider text-forest">
-                  {post.topic}
-                </p>
-                <h3 className="mt-3 text-lg font-semibold font-serif text-ink group-hover:text-forest transition-colors">
-                  {post.title}
-                </h3>
-                <div className="mt-4 text-sm font-semibold text-forest">
-                  Leer →
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-12">
-            <Link
-              href="/insights"
-              className="text-sm font-semibold text-forest hover:text-forest/80 transition-colors inline-flex items-center gap-2"
-            >
-              Ver todos los insights
-              <span>→</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-    </main>
+      <section className={s.project} aria-labelledby="project-title"><div className={`${s.wrap} ${s.projectGrid}`}>
+        <figure><Image src="/images/mit/nicolas-workshop.webp" alt="Nicolás Valenzuela participando en una sesión de trabajo durante el programa CDO" width={750} height={1000} sizes="(max-width: 760px) 90vw, 360px" /><figcaption>Intercambio y trabajo aplicado durante el programa CDO.</figcaption></figure>
+        <div><p className={s.eyebrow}>02 / DEL APRENDIZAJE AL DISEÑO</p><h2 id="project-title">Pensar la tecnología desde un problema de negocio.</h2><p className={s.projectName}>PIM-360X <span>PROYECTO ACADÉMICO GRUPAL</span></p><p>Una propuesta de plataforma que parte del ticket de compra para conectar comercios de cercanía, consumidores y marcas. Explora cómo transformar esos datos en información y acciones comerciales con apoyo de IA.</p><details><summary>El enfoque y sus límites <span aria-hidden="true">＋</span></summary><p>El diseño propone comenzar sin una integración inicial con POS o ERP y contempla supervisión humana de los procesos asistidos por IA. Es una propuesta académica; no representa una implementación comercial ni resultados de un piloto.</p><p>Impact Project, Grupo 2, del programa CDO. Equipo: Sandra Schijvarger, David Mendez, Julio Larrechart, Cristian Pino Mora, Luis Sansot y Nicolás Valenzuela.</p></details></div>
+      </div></section>
+      <section className={`${s.wrap} ${s.section}`} aria-labelledby="decisions-title"><div className={s.sectionHeading}><p className={s.eyebrow}>03 / TRABAJAR JUNTOS</p><h2 id="decisions-title">Decisiones que merecen<br /><em>una mirada integrada.</em></h2></div><div className={s.decisions}>{decisions.map((item, i) => <article key={item.title}><span className={s.number}>0{i + 1}</span><p className={s.eyebrow}>{item.label}</p><h3>{item.title}</h3><p>{item.text}</p></article>)}</div><Link className={s.textLink} href="/consulting">Cómo puedo acompañarte <span aria-hidden="true">↗</span></Link></section>
+      <section className={`${s.wrap} ${s.section} ${s.insights}`} aria-labelledby="insights-title"><div className={s.sectionHeading}><div><p className={s.eyebrow}>04 / IDEAS PARA PONER EN PRÁCTICA</p><h2 id="insights-title">Perspectivas sobre<br /><em>el negocio que viene.</em></h2></div><Link className={s.textLink} href="/insights">Todos los artículos ↗</Link></div><div className={s.articles}>{posts.map(post => <Link key={post.slug} href={`/insights/${post.slug}`}><p className={s.eyebrow}>{post.topic}</p><h3>{post.title}</h3><span className={s.textLink}>Leer artículo <span aria-hidden="true">↗</span></span></Link>)}</div></section>
+      <section className={s.contact}><div className={s.wrap}><p className={s.eyebrow}>ABRAMOS UNA CONVERSACIÓN</p><h2>¿Qué decisión necesita<br /><em>hoy tu negocio?</em></h2><Link className={s.button} href="/consulting">Exploremos cómo trabajar juntos <span aria-hidden="true">↗</span></Link></div></section>
+    </div>
   );
 }

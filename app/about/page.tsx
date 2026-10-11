@@ -1,13 +1,10 @@
+import { pageMetadata, socialPages } from "@/lib/social";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { profileData } from "@/lib/data/profile";
 import LeadershipDetail from "@/components/LeadershipDetail";
 
-export const metadata: Metadata = {
-  title: "Sobre Prof. Nicolás Valenzuela",
-  description:
-    "Perfil profesional de Prof. Nicolás Valenzuela, desde Buenos Aires, Argentina, enfocado en digital commerce, retail media, inteligencia artificial y transformación de negocios en América Latina.",
-};
+export const metadata: Metadata = pageMetadata(socialPages.about);
 
 export default function AboutPage() {
   const profileJsonLd = {
@@ -18,6 +15,7 @@ export default function AboutPage() {
       "Perfil profesional de Prof. Nicolás Valenzuela, desde Buenos Aires, Argentina, enfocado en digital commerce, retail media, inteligencia artificial y transformación organizacional en América Latina.",
     mainEntity: {
       "@type": "Person",
+      "@id": "https://www.nicolas.com.ar/#person",
       name: "Prof. Nicolás Valenzuela",
       alternateName: ["Nicolás Valenzuela"],
       jobTitle: "Strategic Advisor",

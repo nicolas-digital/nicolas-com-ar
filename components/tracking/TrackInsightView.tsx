@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { pushToDataLayer } from "@/lib/gtm";
 
 type Props = {
@@ -9,19 +9,14 @@ type Props = {
   topic: string;
 };
 
-declare global {
-  interface Window {
-    __lastTrackedInsightSlug?: string;
-  }
-}
-
 export default function TrackInsightView({ title, slug, topic }: Props) {
+  const lastSlug = useRef<string | null>(null);
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    if (window.__lastTrackedInsightSlug === slug) return;
+    if (lastSlug.current === slug) return;
 
-    window.__lastTrackedInsightSlug = slug;
+    lastSlug.current = slug;
 
     pushToDataLayer({
       event: "view_insight",

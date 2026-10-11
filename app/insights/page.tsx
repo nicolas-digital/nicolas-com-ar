@@ -1,6 +1,10 @@
+import { pageMetadata, socialPages } from "@/lib/social";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
 import InsightCard from "@/components/InsightCard";
+
+export const metadata: Metadata = pageMetadata(socialPages.insights);
 
 export default function InsightsPage() {
   const posts = getAllPosts();

@@ -1,11 +1,8 @@
+import { pageMetadata, socialPages } from "@/lib/social";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Consulting & Strategic Advisory | Prof. Nicolás Valenzuela",
-  description:
-    "Strategic advisory para retailers, marcas y tecnología en retail media, ecommerce e inteligencia artificial. Transformación digital con foco en ejecución real en América Latina.",
-};
+export const metadata: Metadata = pageMetadata(socialPages.consulting);
 
 export default function ConsultingPage() {
   return (

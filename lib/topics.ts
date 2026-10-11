@@ -190,7 +190,7 @@ export const topics: Topic[] = [
     slug: "digital-operations",
     title: "Digital Operations",
     description:
-      "Ejecución operacional, logística, automatización, infraestructura y frameworks de operación en retail digital. [TU DIFERENCIADOR]",
+      "Ejecución operacional, logística, automatización, infraestructura y frameworks de operación en retail digital.",
     longDescription:
       "Define la ejecución real. Exploramos cómo se ejecuta el negocio digital: supply chain, fulfillment, automatización operacional, infraestructura de datos, frameworks de gobernanza y metodologías probadas en LATAM.",
     emoji: "⚙️",

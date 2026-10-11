@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/social";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTopicBySlug, getAllTopics } from "@/lib/topics";
@@ -19,15 +20,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  return {
-    title: `${topic.title} | Prof. Nicolás Valenzuela`,
-    description: topic.longDescription || topic.description,
-    openGraph: {
-      title: topic.title,
-      description: topic.longDescription || topic.description,
-      url: `https://nicolas.com.ar/topics/${topic.slug}`,
-    },
-  };
+  return pageMetadata({
+    path: `/topics/${topic.slug}`,
+    title: topic.title,
+    description: topic.description,
+  });
 }
 
 // Generar paths estáticos

@@ -1,13 +1,10 @@
+import { pageMetadata, socialPages } from "@/lib/social";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getAllTopics } from "@/lib/topics";
 import { getAllPosts } from "@/lib/posts";
 
-export const metadata: Metadata = {
-  title: "Temas | Prof. Nicolás Valenzuela",
-  description:
-    "Digital Retail Knowledge Graph: Explorar 5 pilares —Retail Strategy, Commerce Platforms, AI & Digital Retail, Digital Operations, Retail Media & Marketing— con análisis y frameworks sobre el futuro del comercio digital en América Latina.",
-};
+export const metadata: Metadata = pageMetadata(socialPages.topics);
 
 export default function TopicsPage() {
   const allTopics = getAllTopics();

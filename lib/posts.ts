@@ -6,9 +6,12 @@ const postsDirectory = path.join(process.cwd(), "content/insights");
 
 export type PostMeta = {
   title: string;
+  socialTitle?: string;
   slug: string;
   description: string;
   date: string;
+  updatedAt?: string;
+  draft: boolean;
   topic: string;
   subnodo?: string;
   transversals?: string[];
@@ -32,9 +35,12 @@ function parsePostFile(fileName: string): Post {
   return {
     meta: {
       title: data.title ?? slug,
+      socialTitle: data.socialTitle,
       slug,
       description: data.description ?? "",
-      date: data.date ?? "",
+      date: data.date instanceof Date ? data.date.toISOString() : data.date ?? "",
+      updatedAt: data.updatedAt instanceof Date ? data.updatedAt.toISOString() : data.updatedAt,
+      draft: data.draft === true,
       topic: data.topic ?? "general",
       subnodo: data.subnodo,
       transversals: Array.isArray(data.transversals) ? data.transversals : [],
@@ -46,6 +52,11 @@ function parsePostFile(fileName: string): Post {
   };
 }
 
+export function isPublished(meta: PostMeta): boolean {
+  const publishedAt = new Date(meta.date).getTime();
+  return !meta.draft && Number.isFinite(publishedAt) && publishedAt <= Date.now();
+}
+
 export function getAllPosts(): PostMeta[] {
   const fileNames = fs
     .readdirSync(postsDirectory)
@@ -53,19 +64,22 @@ export function getAllPosts(): PostMeta[] {
 
   return fileNames
     .map((fileName) => parsePostFile(fileName).meta)
+    .filter(isPublished)
     .sort(
       (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
     );
 }
 
 export function getPostBySlug(slug: string): Post | null {
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) return null;
   const fullPath = path.join(postsDirectory, `${slug}.mdx`);
 
   if (!fs.existsSync(fullPath)) {
     return null;
   }
 
-  return parsePostFile(`${slug}.mdx`);
+  const post = parsePostFile(`${slug}.mdx`);
+  return isPublished(post.meta) ? post : null;
 }
 
 export function getPostsByTopic(topic: string): PostMeta[] {

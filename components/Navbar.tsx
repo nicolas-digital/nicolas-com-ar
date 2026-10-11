@@ -5,10 +5,10 @@ import { useState, useRef, useEffect } from "react";
 
 const links = [
   { href: "/", label: "Inicio" },
-  { href: "/about", label: "About" },
-  { href: "/consulting", label: "Consulting" },
+  { href: "/about", label: "Trayectoria" },
+  { href: "/consulting", label: "Consultoría" },
   { href: "/insights", label: "Insights" },
-  { href: "/topics", label: "Topics" },
+  { href: "/topics", label: "Temas" },
 ];
 
 export default function Navbar() {
@@ -30,13 +30,20 @@ export default function Navbar() {
     }
 
     if (isOpen) {
+      function handleEscape(event: KeyboardEvent) {
+        if (event.key === "Escape") { setIsOpen(false); buttonRef.current?.focus(); }
+      }
       document.addEventListener("mousedown", handleClickOutside);
-      return () => document.removeEventListener("mousedown", handleClickOutside);
+      document.addEventListener("keydown", handleEscape);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+        document.removeEventListener("keydown", handleEscape);
+      };
     }
   }, [isOpen]);
 
   return (
-    <header className="border-b border-gray-200 bg-white sticky top-0 z-50">
+    <header className="border-b border-gray-200 bg-cream sticky top-0 z-50">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/" className="text-lg font-medium tracking-tight text-ink">
           Nicolás Valenzuela
@@ -55,8 +62,10 @@ export default function Navbar() {
         <button
           ref={buttonRef}
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden flex items-center justify-center w-10 h-10 text-ink hover:text-forest"
-          aria-label="Menu"
+          className="md:hidden flex items-center justify-center w-11 h-11 text-ink hover:text-forest"
+          aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
         >
           <svg
             className="w-6 h-6"
@@ -78,6 +87,7 @@ export default function Navbar() {
       {isOpen && (
         <div
           ref={menuRef}
+          id="mobile-navigation"
           className="md:hidden border-t border-gray-200 bg-cream"
         >
           <nav className="mx-auto max-w-6xl px-6 py-4 flex flex-col gap-4 text-sm font-medium text-ink">

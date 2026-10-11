@@ -1,4 +1,7 @@
 # SEO & GEO Strategy — nicolas.com.ar
+
+> Antecedente histórico. Desde 2026-10-10, usar `docs/criterio-editorial-visibilidad.md` para el criterio operativo. Este documento usa GEO también como geografía; no equivale a visibilidad generativa. Las promesas de autoridad/citación aquí descritas son hipótesis, no resultados verificados.
+
 ## Criterios Formalizados
 
 **Fecha:** 15 de Marzo, 2026  

@@ -1,6 +1,7 @@
+import { pageMetadata, socialPages } from "@/lib/social";
 import "./globals.css";
 import type { Metadata } from "next";
-import { GoogleTagManager } from "@next/third-parties/google";
+import Analytics from "@/components/tracking/Analytics";
 
 import { lora, dmSans } from "@/lib/fonts";
 import { JsonLd } from "@/app/components/JsonLd";
@@ -8,16 +9,19 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
+  ...pageMetadata(socialPages.home),
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || "wEfiIJYCkKLxjhBgQOtTFObtQT3_11lrELp_iHFdhns",
+    other: { "msvalidate.01": process.env.BING_SITE_VERIFICATION || "8B125DBC4AA09A2D3F9338FBB1C3C9F2" },
+  },
   metadataBase: new URL("https://www.nicolas.com.ar"),
 
   title: {
     default:
-      "Prof. Nicolás Valenzuela — Digital Commerce, Retail Media & AI | Buenos Aires",
-    template: "%s | Prof. Nicolás Valenzuela",
+      "Nicolás Valenzuela — Estrategia, datos e IA",
+    template: "%s | Nicolás Valenzuela",
   },
 
-  description:
-    "Prof. Nicolás Valenzuela, desde Buenos Aires, Argentina. Estrategia digital, ecommerce, retail media e inteligencia artificial aplicada para organizaciones en América Latina.",
 
   keywords: [
     "Nicolás Valenzuela",
@@ -40,16 +44,6 @@ export const metadata: Metadata = {
   creator: "Prof. Nicolás Valenzuela",
   publisher: "Prof. Nicolás Valenzuela",
 
-  openGraph: {
-    title:
-      "Prof. Nicolás Valenzuela — Digital Commerce, Retail Media & AI",
-    description:
-      "Perspectivas sobre ecommerce, retail media, inteligencia artificial y transformación digital en América Latina.",
-    url: "https://www.nicolas.com.ar",
-    siteName: "Nicolás Valenzuela",
-    locale: "es_AR",
-    type: "website",
-  },
 
   robots: {
     index: true,
@@ -65,13 +59,14 @@ export default function RootLayout({
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://www.nicolas.com.ar/#person",
     name: "Nicolás Valenzuela",
     alternateName: "Prof. Nicolás Valenzuela",
     jobTitle: "Digital Transformation Advisor | Board Member",
     description:
       "Advisor en transformación digital, retail media e IA aplicada con +25 años de experiencia en Latinoamérica. Programa en Alta Dirección: Chief Digital Officer de MIT Professional Education, completado el 2 de octubre de 2026. Experto en digital commerce, retail strategy y operaciones digitales. Gestión de Digital Commerce y Retail Media basada en P&L.",
     url: "https://www.nicolas.com.ar",
-    image: "https://www.nicolas.com.ar/images/nicolas-valenzuela.jpg",
+    image: "https://www.nicolas.com.ar/images/mit/nicolas-campus.webp",
     email: "nicolas@nicolas.com.ar",
     sameAs: [
       "https://www.linkedin.com/in/nvalenzuela/",
@@ -83,13 +78,6 @@ export default function RootLayout({
       addressRegion: "Buenos Aires",
       addressCountry: "AR",
     },
-    areaServed: [
-      { "@type": "Country", "name": "Argentina" },
-      { "@type": "Country", "name": "Mexico" },
-      { "@type": "Country", "name": "Brazil" },
-      { "@type": "Country", "name": "Colombia" },
-      { "@type": "Country", "name": "Chile" },
-    ],
     knowsAbout: [
       "Digital Commerce",
       "Retail Media",
@@ -110,29 +98,19 @@ export default function RootLayout({
       {
         "@type": "EducationalOccupationalCredential",
         credentialCategory: "Certificate",
-        name: "Chief Digital Officer",
-        issuedBy: {
+        name: "Programa en Alta Dirección: Chief Digital Officer",
+        recognizedBy: {
           "@type": "EducationalOrganization",
           name: "MIT Professional Education",
         },
-        year: 2026,
+        description: "Completado el 2 de octubre de 2026; 525 horas de formación.",
       },
     ],
     alumniOf: [
       {
-        "@type": "CollegeOrUniversity",
+        "@type": "EducationalOrganization",
         name: "MIT Professional Education",
         description: "Chief Digital Officer Program - 2026",
-      },
-      {
-        "@type": "CollegeOrUniversity",
-        name: "Universidad Católica Argentina",
-        description: "MBA: tesis presentada; defensa prevista para el 22 de octubre de 2026",
-      },
-      {
-        "@type": "CollegeOrUniversity",
-        name: "Universidad de Buenos Aires",
-        description: "Docencia desde 2000",
       },
     ],
     memberOf: {
@@ -141,24 +119,6 @@ export default function RootLayout({
       description: "Board of Directors — 8 años",
       url: "https://www.cace.org.ar",
     },
-    jobExperience: [
-      {
-        "@type": "EmployeeRole",
-        name: "Gerente Digital Commerce",
-        employer: "Cencosud S.A.",
-        startDate: "2021-10",
-        endDate: "2025-04",
-        description: "Liderazgo de Digital Commerce en Cencosud Argentina, con gestión basada en P&L, objetivos de ingresos y EBITDA y planificación de recursos. Participación en la construcción y consolidación de Cencosud Media como unidad de Retail Media con estado de resultados propio.",
-      },
-      {
-        "@type": "EmployeeRole",
-        name: "Founder & CEO",
-        employer: "andabi",
-        startDate: "2016-01-01",
-        endDate: "2021-12-31",
-        description: "BI/Analytics Consultancy. Agencia oficial de medición para CyberMonday y HotSale (4 ediciones). 10+ clientes corporativos Fortune 500.",
-      },
-    ],
     hasOccupation: {
       "@type": "Occupation",
       name: "Digital Transformation Advisor",
@@ -167,47 +127,21 @@ export default function RootLayout({
         name: "Argentina",
       },
     },
-    award: [
-      {
-        "@type": "Award",
-        name: "Premio Retail Digital",
-        description: "Reconocimiento por trayectoria y aportes significativos a la transformación tecnológica dentro de la industria minorista. Integración de estrategias omnicanal y reimaginación del retail uniendo mundo físico con digital.",
-        awardDate: "2025-05",
-        awarding: {
-          "@type": "Organization",
-          name: "Web Retail",
-          url: "https://www.webretail.com.ar",
-          description: "Comunidad de expertos en transformación digital del retail",
-        },
-        event: "Retail Day 2025",
-        eventDate: "2025-05",
-        eventLocation: "Buenos Aires, Argentina",
-      },
-    ],
+    award: "Premio Retail Digital — Retail Day 2025, Web Retail",
   };
 
   return (
     <html lang="es" className={`${lora.variable} ${dmSans.variable}`}>
-      <JsonLd data={personSchema} />
-      <head>
-        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || ''} />
-      </head>
+
       <body className="min-h-screen bg-cream text-ink antialiased">
+        <JsonLd data={personSchema} />
         <div className="flex min-h-screen flex-col">
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
 
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID}`}
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
-          />
-        </noscript>
+        <Analytics gtmId={process.env.NEXT_PUBLIC_GTM_ID || ""} />
       </body>
     </html>
   );

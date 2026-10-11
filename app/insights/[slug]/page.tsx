@@ -1,3 +1,4 @@
+import { pageMetadata, socialImage } from "@/lib/social";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -33,43 +34,17 @@ export async function generateMetadata({
 
   const { meta } = post;
 
-  const title = meta.title;
+  const title = meta.socialTitle || meta.title;
   const description =
     meta.description ||
     "Insights sobre transformación digital, ecommerce, retail media e inteligencia artificial aplicada en América Latina.";
 
-  return {
-    title,
-    description,
-    alternates: {
-      canonical: `/insights/${meta.slug}`,
-    },
-    openGraph: {
-      type: "article",
-      url: `/insights/${meta.slug}`,
-      title,
-      description,
-      siteName: "nicolas.com.ar",
-      images: meta.coverImage
-        ? [
-            {
-              url: meta.coverImage,
-              alt: meta.title,
-            },
-          ]
-        : [],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: meta.coverImage ? [meta.coverImage] : [],
-    },
-    robots: {
-      index: true,
-      follow: true,
-    },
-  };
+  return pageMetadata({
+    path: `/insights/${meta.slug}`, title, description,
+    publishedTime: new Date(meta.date).toISOString(),
+    modifiedTime: meta.updatedAt ? new Date(meta.updatedAt).toISOString() : undefined,
+    tags: meta.tags,
+  });
 }
 
 export default async function InsightDetailPage({ params }: PageProps) {
@@ -91,13 +66,16 @@ export default async function InsightDetailPage({ params }: PageProps) {
     headline: meta.title,
     description: meta.description,
     datePublished: new Date(meta.date).toISOString(),
+    ...(meta.updatedAt ? { dateModified: new Date(meta.updatedAt).toISOString() } : {}),
     author: {
       "@type": "Person",
+      "@id": "https://www.nicolas.com.ar/#person",
       name: "Prof. Nicolás Valenzuela",
       url: "https://www.nicolas.com.ar/about",
     },
     publisher: {
       "@type": "Person",
+      "@id": "https://www.nicolas.com.ar/#person",
       name: "Prof. Nicolás Valenzuela",
     },
     url: `https://www.nicolas.com.ar/insights/${meta.slug}`,
@@ -111,9 +89,7 @@ export default async function InsightDetailPage({ params }: PageProps) {
       "@type": "Place",
       name: "Buenos Aires, Argentina",
     },
-    image: meta.coverImage
-      ? [`https://www.nicolas.com.ar${meta.coverImage}`]
-      : [],
+    image: [socialImage(`/insights/${meta.slug}`)],
     keywords: meta.tags ?? [],
   };
 
@@ -143,7 +119,9 @@ export default async function InsightDetailPage({ params }: PageProps) {
           </h1>
 
           <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-muted">
-            <span className="font-semibold">{meta.date}</span>
+            <Link href="/about" className="font-semibold text-forest underline">Nicolás Valenzuela</Link>
+            <time dateTime={meta.date}>{meta.date.slice(0, 10)}</time>
+            {meta.updatedAt && <time dateTime={meta.updatedAt}>Actualizado: {meta.updatedAt.slice(0, 10)}</time>}
             <span>•</span>
             <span>{readingTime}</span>
             <span>•</span>

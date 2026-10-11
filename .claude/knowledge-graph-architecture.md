@@ -1,4 +1,7 @@
 # Digital Retail Knowledge Graph
+
+> Antecedente de arquitectura editorial. Para visibilidad en LLMs y calidad de contenido, seguir `docs/criterio-editorial-visibilidad.md` (2026-10-10). Las afirmaciones de unicidad, citación o posicionamiento de este documento no están acreditadas por una medición; los pilares siguen siendo una propuesta de organización.
+
 ## arquitectura editorial para nicolas.com.ar
 
 **Fecha:** 15 de Marzo, 2026  
