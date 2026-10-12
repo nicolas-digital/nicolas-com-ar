@@ -143,13 +143,14 @@ export default async function InsightDetailPage({ params }: PageProps) {
             <div className="relative overflow-hidden rounded-lg border-2 border-forest/20">
               <Image
                 src={meta.coverImage}
-                alt={meta.title}
+                alt={meta.coverImageAlt || meta.title}
                 width={1600}
                 height={900}
                 className="h-auto w-full object-cover"
                 priority
               />
             </div>
+            {meta.coverImageCaption && <p className="mt-3 text-sm text-muted">{meta.coverImageCaption}</p>}
           </div>
         </section>
       )}
@@ -158,7 +159,7 @@ export default async function InsightDetailPage({ params }: PageProps) {
       <section className="border-b border-gray-200">
         <div className="mx-auto max-w-4xl px-6 py-16 md:py-24">
           <div className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-ink prose-headings:font-bold prose-p:text-muted prose-strong:text-ink prose-a:text-forest hover:prose-a:text-forest/80 prose-a:font-semibold prose-a:no-underline prose-code:text-forest prose-code:bg-forest/10 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-blockquote:border-gold prose-blockquote:border-l-4 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-muted">
-            <MDXRemote source={content} />
+            <MDXRemote source={content} components={{ Image }} />
           </div>
         </div>
       </section>

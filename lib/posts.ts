@@ -7,6 +7,8 @@ const postsDirectory = path.join(process.cwd(), "content/insights");
 export type PostMeta = {
   title: string;
   socialTitle?: string;
+  socialImageSource?: string;
+  socialHeadline?: string;
   slug: string;
   description: string;
   date: string;
@@ -17,6 +19,8 @@ export type PostMeta = {
   transversals?: string[];
   tags: string[];
   coverImage: string;
+  coverImageAlt?: string;
+  coverImageCaption?: string;
   featured: boolean;
 };
 
@@ -36,6 +40,8 @@ function parsePostFile(fileName: string): Post {
     meta: {
       title: data.title ?? slug,
       socialTitle: data.socialTitle,
+      socialImageSource: data.socialImageSource,
+      socialHeadline: data.socialHeadline,
       slug,
       description: data.description ?? "",
       date: data.date instanceof Date ? data.date.toISOString() : data.date ?? "",
@@ -46,6 +52,8 @@ function parsePostFile(fileName: string): Post {
       transversals: Array.isArray(data.transversals) ? data.transversals : [],
       tags: Array.isArray(data.tags) ? data.tags : [],
       coverImage: data.coverImage ?? "",
+      coverImageAlt: data.coverImageAlt,
+      coverImageCaption: data.coverImageCaption,
       featured: Boolean(data.featured),
     },
     content,

@@ -46,7 +46,7 @@ export default function InsightsPage() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={featured.coverImage}
-                      alt={featured.title}
+                      alt={featured.coverImageAlt || featured.title}
                       className="h-full w-full object-cover"
                     />
                   </div>
