@@ -1,6 +1,32 @@
 # Medición e indexación — 11 de octubre de 2026
 
-## Estado de las cuentas comprobado en navegador
+## Cierre comprobado en producción — 11 de octubre, 23:36 ART
+
+- **Search Console:** propiedad `https://www.nicolas.com.ar/` verificada mediante etiqueta HTML. Sitemap reenviado correctamente el 11 de octubre. El panel conserva una última lectura del 16 de marzo y 24 URLs descubiertas; el envío no acredita un rastreo nuevo.
+- **Artículo CDO:** la inspección inicialmente indicó que Google no conocía la URL. La solicitud de indexación fue aceptada y la URL entró en la cola de rastreo prioritaria. No se afirma que esté indexada todavía.
+- **Bing:** verificación HTML completada; dashboard y herramientas habilitados. `https://www.nicolas.com.ar/sitemap.xml` enviado y en estado **Processing**. Bing muestra fecha de envío 12 de octubre (UTC), última lectura 14 de marzo y 9 URLs históricas para ese sitemap; no confundirlas con el inventario actual de 24 URLs.
+- **GTM:** versión 8 publicada con los siete cambios de eventos. La prueba detectó que la etiqueta base GA4 cargaba después del primer `view_insight`. Se corrigió y publicó la **versión 9**, `Inicialización GA4 y pausa de Universal Analytics`, a las 23:35 ART: etiqueta base en `Initialization - All Pages`, dos etiquetas Universal Analytics pausadas de manera reversible.
+- **Validación de eventos:** Tag Assistant conectó con producción y mostró un `view_insight` y un `contact_click` por las acciones probadas. Las variables del artículo contienen título, slug y tema correctos. GA4 DebugView recibió ambos eventos y dos `page_view` correspondientes a artículo y consultoría. El clic de contacto abrió el compositor de correo; no se envió ningún mensaje.
+- **Orden de carga:** en la prueba posterior al ajuste, Tag Assistant mostró `page_view` y `view_insight` enviados a `G-BSVFBFNNER`, sin la advertencia anterior; ambas etiquetas UA aparecieron en pausa. También se seleccionó el entorno **Publicada** para comprobar la configuración vigente.
+- **Dimensiones GA4:** `insight_slug`, `insight_title` e `insight_topic` ya existían con alcance Evento desde el 13 de marzo. Se conservaron, sin duplicarlas.
+- **Vinculación GA4–Search Console:** creada correctamente entre el prefijo HTTPS verificado y el flujo `2775130331` de `nicolas.com.ar - GA4`.
+- **Sitio:** artículo, portada, Open Graph, robots, sitemap y `llms.txt` ya publicados. La validación más reciente cubre 24 URLs; el índice LLM se genera a partir del mismo inventario de publicaciones.
+
+Queda observar el procesamiento de buscadores y los datos de tráfico reales. Envío de sitemap, solicitud de indexación y eventos de prueba no prueban posicionamiento, citas en LLMs ni contactos comerciales. No se programó monitoreo automático.
+
+### Evidencia de navegador
+
+Capturas locales guardadas en `/private/tmp/`:
+
+- `nicolas-gsc-verificado.png`
+- `nicolas-gsc-sitemap-enviado.png`
+- `nicolas-articulo-indexacion-solicitada.png`
+- `nicolas-bing-sitemap-enviado.png`
+- `nicolas-gtm-v9-publicada.png`
+- `nicolas-ga4-debugview-eventos.png`
+- `nicolas-ga4-search-console-vinculada.png`
+
+## Estado inicial de las cuentas (antecedente)
 
 - GTM: cuenta 121775706, contenedor 1523392, ID público **GTM-TQLKT9**, workspace 1000007. Había cinco cambios añadidos sin publicar: evento `view_insight`, su activador y tres variables de capa de datos. No son cambios creados en esta revisión.
 - GA4: cuenta 67196193, propiedad **285034210**, flujo web **2775130331**, medición **G-BSVFBFNNER**. Recepción durante las últimas 48 horas indicada por GA4. URL del flujo actualizada de HTTP a HTTPS y guardada. Medición mejorada de cargas y cambios del historial activa; no añadir otro emisor manual de `page_view`.
@@ -22,7 +48,7 @@
 - `contact_click` se emite al pulsar un enlace `mailto:`, con método email y path; no se incluye contenido de mensajes, correo del visitante ni texto libre. La etiqueta de GTM mide el nombre del evento y el contexto automático de GA4.
 - Footer plegado inicialmente: identidad, contacto y control “Explorar el sitio”; enlaces conservados en HTML. Alto móvil plegado medido: 130 px.
 
-## GTM preparado
+## Preparación inicial de GTM (resuelta en el cierre)
 
 Se añadieron y guardaron:
 
@@ -40,9 +66,9 @@ El workspace tiene siete cambios pendientes. No confundir guardado con publicaci
 - `node scripts/check-seo.mjs`: 23 URLs, status, canonical, indexabilidad, sitemap, robots, tokens, JSON-LD y 404, aprobado en servidor local.
 - Navegador: footer plegar/desplegar con teclado y puntero, mobile/desktop; cero scripts de GTM en localhost.
 
-No se acredita aún recepción de los nuevos eventos en DebugView ni se midieron CWV de campo. Una configuración marcada activa no prueba ausencia de duplicados en todos los recorridos.
+En esta primera revisión no se acreditaba recepción de los nuevos eventos en DebugView; quedó comprobada en el cierre documentado arriba. No se midieron CWV de campo. El recorrido probado no acredita ausencia de duplicados en todos los recorridos posibles.
 
-## Secuencia de cierre en producción
+## Secuencia prevista de cierre (ejecutada; seguimiento de resultados abierto)
 
 1. Publicar el sitio revisado y comprobar de nuevo HTML, robots, sitemap y redirección HTTP/no-www.
 2. Verificar propiedad HTTPS en Search Console y Bing usando las etiquetas incorporadas.
@@ -60,6 +86,6 @@ No se acredita aún recepción de los nuevos eventos en DebugView ni se midieron
 - https://www.bing.com/webmasters/help/add-and-verify-site-12184f8b
 - https://schema.org/EducationalOccupationalCredential
 
-## Resultado de Tag Assistant
+## Primer intento de Tag Assistant (antecedente superado)
 
 Se intentó conectar al dominio de producción desde la vista previa del workspace. El navegador mostró los scripts reales `gtm.js` de GTM-TQLKT9 y `gtag/js` de G-BSVFBFNNER, sin errores de consola capturados. Tag Assistant agotó el tiempo de conexión y no mostró eventos depurables; por ello los nuevos eventos siguen sin validación extremo a extremo y no se publicó el workspace. También se observó la carga histórica de `analytics.js` (Universal Analytics): queda pendiente pausar las etiquetas UA tras revisar sus dependencias. La conexión automática inicial apuntaba a localhost:3000 (destino recordado), luego se probó el dominio correcto.
