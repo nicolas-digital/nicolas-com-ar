@@ -18,9 +18,16 @@ for (const url of urls) {
   assert.ok(!/name="robots" content="[^"]*noindex/.test(html),`indexable ${path}`);
   for (const [,data] of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)) JSON.parse(data);
 }
+const llms = await get('/llms.txt');
+assert.ok(llms.startsWith('# Nicolás Valenzuela'));
+for (const url of urls) {
+  const expected = url === origin ? `${origin}/` : url;
+  assert.ok(llms.includes(`](${expected})`), `llms inventory: ${url}`);
+}
+assert.ok(!llms.includes('/thanks'));
 const home = await get('/');
 assert.ok(home.includes('name="google-site-verification"'));
 assert.ok(home.includes('name="msvalidate.01"'));
 assert.match(await get("/thanks"), /name="robots" content="[^"]*noindex/);
 assert.equal((await fetch(`${base}/insights/not-a-real-article`)).status,404);
-console.log(`PASS: ${urls.length} canonical/indexable URLs, sitemap, robots, ownership metadata, JSON-LD, noindex and 404.`);
+console.log(`PASS: ${urls.length} canonical/indexable URLs, sitemap, robots, llms inventory, ownership metadata, JSON-LD, noindex and 404.`);
